@@ -1,12 +1,62 @@
 Regan
 What is the average age of people who do (substance)?
+
+SELECT AVG(Age)
+FROM People, consumes
+WHERE consumes.drug = 'Alcohol'
+  AND consumes.person = People.ID;
+
 What is the mode age of people who do (substance)?
+
+SELECT STATS_MODE(Age)
+FROM People, consumes
+WHERE consumes.drug = 'Alcohol'
+  AND consumes.person = People.ID;
+
 What is the median age of people who do (substance)?
+SELECT MEDIAN(Age)
+FROM People, consumes
+WHERE consumes.drug = 'Alcohol'
+  AND consumes.person = People.ID;
+
 What is the standard deviation age of people who do (substance)?
+
+SELECT STDDEV(Age)
+FROM People, consumes
+WHERE consumes.drug = 'Alcohol'
+  AND consumes.person = People.ID;
+
 Amount of people who do (substance)?
+
+SELELCT COUNT(*)
+FROM People, consumes
+WHERE consumes.drug = 'Alcohol'
+  AND consumes.person = People.ID;
+
 Amount of people who do (substance) and make more than (amount)?
+
+SELELCT COUNT(*)
+FROM People, consumes, has
+WHERE consumes.drug = 'Alcohol'
+  AND has.income > 21000
+  AND consumes.person = People.ID
+  AND has.person = People.ID;
+
 Percentage of people who do (substance)?
+
+SELECT COUNT(ID)/100
+FROM People, consumes
+WHERE consumes.drug = 'Alcohol'
+  AND consumes.person = People.ID;
+
 Percentage of people who do (substance) and make more than (amount)?
+
+SELECT COUNT(ID)/100
+FROM People, consumes, has
+WHERE consumes.drug = 'Alcohol'
+  AND consumes.person = People.ID
+  AND People.ID = has.person
+  AND has.income > 21000;
 
 Vincent
 What is the average income of people who do (substance)?
