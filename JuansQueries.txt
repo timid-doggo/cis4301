@@ -1,28 +1,3 @@
-Regan
-What is the average age of people who do (substance)?
-What is the mode age of people who do (substance)?
-What is the median age of people who do (substance)?
-What is the standard deviation age of people who do (substance)?
-Amount of people who do (substance)?
-Amount of people who do (substance) and make more than (amount)?
-Percentage of people who do (substance)?
-Percentage of people who do (substance) and make more than (amount)?
-
-Vincent
-What is the average income of people who do (substance)?
-What is the mode income of people who do (substance)?
-What is the median income of people who do (substance)?
-What is the standard deviation income of people who do (substance)?
-Amount of people who do (substance) and are unemployed?
-Amount of people who do (substance) and make less than (amount)?
-Percentage of people who do (substance) and are unemployed?
-Percentage of people who do (substance) and make less than (amount)?
-
-
-
-
-
-
 Juan
 What is the average age of first use of people who do (substance)?
 
@@ -79,17 +54,3 @@ FROM people,consumes
 WHERE race='Hispanic'
   AND people.id=consumes.person
   AND consumes.drug='Alcohol';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
