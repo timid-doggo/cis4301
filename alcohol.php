@@ -178,7 +178,7 @@
 				</select>-->
 				?
 				<input type="submit" name="submit">
-			</post>
+			</form>
 			<!--(Average) (value) of people who use (substance)?
 			(Mode) (value) of people who use (substance)?
 			(Median) (value) of people who use (substance)?
@@ -198,11 +198,11 @@
 				{
 					if($first=='amount')
 					{
-						$s = "SELECT COUNT(*) FROM People, consumes WHERE consumes.drug = 'Alcohol';";
+						$s = "SELECT COUNT(*) FROM People, consumes WHERE consumes.drug = 'Alcohol'";
 					}
 					else if($first == 'percentage')
 					{
-						$s = "SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2)) FROM has, consumes WHERE has.job!=9999 AND has.person=consumes.person AND consumes.drug='Alcohol';";
+						$s = "SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2)) FROM has, consumes WHERE has.job!=9999 AND has.person=consumes.person AND consumes.drug='Alcohol'";
 					}
 				}
 

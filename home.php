@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-  	<title>Database Project </title>
+  		<title>Database Project </title>
 	</head>
 	<body>
   		<h1>2014 National Survey on Drug Use and Health (NSDUH)</h1>
@@ -19,24 +19,18 @@
 			$connection = oci_connect($username = 'jnovick',
 		                            $password = 'password',
 		                            $connection_string = '//oracle.cise.ufl.edu/orcl');
-
-
-
-
-
-
-
-			$s = "";
-			$statement = oci_parse($connection, $s);
+			$statement = oci_parse($connection, 'SELECT type FROM drugs');
 			oci_execute($statement);
 
 			while (($row = oci_fetch_array($statement, OCI_BOTH)) != false)
 			{
-				echo $row[0]."<br>";
+								echo $row[0]."<br>";
 			}
 
-			oci_free_statement($statement);
+	oci_free_statement($statement);
+
 			oci_close($connection);
+
 		?>
 	</body>
 </html>
