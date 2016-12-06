@@ -12,7 +12,7 @@
   		</ul>
   		<ul>
 			<li>
-				<a href="http://localhost/page1.php" target "_branch">Drug of Choice</a>
+				<a href="http://localhost/cis4301/page1.php" target "_branch">Drug of Choice</a>
 			</li>
 		</ul>
 		<div> Total Number of Tuples= 
@@ -29,7 +29,7 @@
 									  union all select count(*) as c from HAS
 									  union all select count(*) as c from HASHAD
 									  union all select count(*) as c from EMPLOYMENT
-									);');
+									)');
 				oci_execute($statement);
 
 				while (($row = oci_fetch_array($statement, OCI_BOTH)) != false)

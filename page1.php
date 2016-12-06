@@ -8,19 +8,19 @@
 		<p> Which drug are you interested in? </p>
 		<ul>
 			<li>
-				<a href="http://localhost/alcohol.php" target="_blank">Alcohol</a>
+				<a href="http://localhost/cis4301/alcohol.php" target="_blank">Alcohol</a>
 			</li>
 			<li>
-				<a href="http://localhost/cocaine.php" target="_blank">Cocaine</a> 
+				<a href="http://localhost/cis4301/cocaine.php" target="_blank">Cocaine</a> 
 			</li>
 			<li>
-				<a href="http://localhost/heroin.php" target="_blank">Heroin</a> 
+				<a href="http://localhost/cis4301/heroin.php" target="_blank">Heroin</a> 
 			</li>
 			<li>
-				<a href="http://localhost/marijuana.php" target="_blank">Marijuana</a> 
+				<a href="http://localhost/cis4301/marijuana.php" target="_blank">Marijuana</a> 
 			</li>
 			<li>
-				<a href="http://localhost/tobacco.php" target="_blank">Tobacco</a> 
+				<a href="http://localhost/cis4301/tobacco.php" target="_blank">Tobacco</a> 
 			</li>
 		</ul>
 		<?php
