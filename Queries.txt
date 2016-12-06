@@ -30,8 +30,7 @@ Amount of people who do (substance)?
 
 SELELCT COUNT(*)
 FROM People, consumes
-WHERE consumes.drug = 'Alcohol'
-  AND consumes.person = People.ID;
+WHERE consumes.drug = 'Alcohol';
 
 Amount of people who do (substance) and make more than (amount)?
 
@@ -65,14 +64,14 @@ SELECT AVG(Income)
 FROM People, consumes, has
 WHERE consumes.drug = 'Alcohol'
   AND consumes.person = People.ID;
-  
+
 What is the mode income of people who do (substance)?
 
 SELECT STATS_MODE(Income)
 FROM People, consumes, has
 WHERE consumes.drug = 'Alcohol'
   AND consumes.person = People.ID;
-  
+
 What is the median income of people who do (substance)?
 
 SELECT MEDIAN(Income)
@@ -182,17 +181,3 @@ FROM people,consumes
 WHERE race='Hispanic'
   AND people.id=consumes.person
   AND consumes.drug='Alcohol';
-
-
-
-
-
-
-
-
-
-
-
-
-
-

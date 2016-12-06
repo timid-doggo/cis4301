@@ -22,8 +22,8 @@
     					Percentage
     				</option>
     			</select>
-    			of people who use
-    			<select id="select" name="TWO">
+    			of Alcohol users
+    			<!--<select id="select" name="TWO">
     				<option value="nothing">
     					Choose...
     				</option>
@@ -42,7 +42,7 @@
     				<option value="tobacco">
     					Tobacco
     				</option>
-    			</select>
+    			</select>-->
     			?
     			<input type="submit" name="submit">
     		</form>
@@ -62,7 +62,7 @@
     					Percentage
     				</option>
     			</select>
-    			of people who (are)
+    			of Alcohol users who (are)
     			<select id="select" name="TWO">
     				<option value="nothing">
     					Choose...
@@ -95,8 +95,8 @@
     					Non-Hispanic Multiracial
     				</option>
     			</select>
-    			and use
-    			<select id="select" name="THREE">
+
+    			<!--<select id="select" name="THREE">
     				<option value="nothing">
     					Choose...
     				</option>
@@ -115,7 +115,7 @@
     				<option value="tobacco">
     					Tobacco
     				</option>
-    			</select>
+    			</select>-->
     			?
     			<input type="submit" name="submit">
     		</form>
@@ -155,8 +155,8 @@
 						Age of first use
 					</option>
 				</select>
-				of people who use
-				<select id="select" name="THREE">
+				of Alcohol users
+				<!--<select id="select" name="THREE">
 					<option value="nothing">
 						Choose...
 					</option>
@@ -175,7 +175,7 @@
     				<option value="tobacco">
     					Tobacco
     				</option>
-				</select>
+				</select>-->
 				?
 				<input type="submit" name="submit">
 			</post>
@@ -186,33 +186,40 @@
 		</p>
 
     	<?php
-				$connection = oci_connect($username = 'jnovick',
-																	$password = 'password',
-																	$connection_string = '//oracle.cise.ufl.edu/orcl');
+				//$connection = oci_connect($username = 'jnovick',
+				//													$password = 'password',
+				//													$connection_string = '//oracle.cise.ufl.edu/orcl');
 
 
 				$first = $_POST['ONE'];
 				$second = $_POST['TWO'];
-				$third = $_POST['THREE'];
-				if ($first=)
+
+				if(empty($second))
 				{
-					# code...
+					if($first=='amount')
+					{
+						$s = "SELECT COUNT(*) FROM People, consumes WHERE consumes.drug = 'Alcohol';";
+					}
+					else if($first == 'percentage')
+					{
+						$s = "SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2)) FROM has, consumes WHERE has.job!=9999 AND has.person=consumes.person AND consumes.drug='Alcohol';";
+					}
 				}
 
 
 
-				$s = "";
-			  $statement = oci_parse($connection, $s);
-			  oci_execute($statement);
+				//$s = "";
+			  //$statement = oci_parse($connection, $s);
+			  //oci_execute($statement);
 
-			  while (($row = oci_fetch_array($statement, OCI_BOTH)) != false)
-			  {
-					echo $row[0]."<br>";
-			  }
+			  //while (($row = oci_fetch_array($statement, OCI_BOTH)) != false)
+			  //{
+				//	echo $row[0]."<br>";
+			  //}
 
-			  oci_free_statement($statement);
+			  //oci_free_statement($statement);
 
-			  oci_close($connection);
+			  //oci_close($connection);
     	?>
 	</body>
 </html>
