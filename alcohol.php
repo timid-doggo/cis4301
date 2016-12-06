@@ -450,7 +450,7 @@
 				}
 				else{
 					if(!empty($S2) && empty($S3)){
-						$line="{$S1} {$S2} of Alcohol users: ";
+						$line="The {$S1} {$S2} of Alcohol users: ";
 					}
 					else if(!empty($S2)){
 						$t="select type from Employment where JOBID={$S3}";
@@ -463,7 +463,7 @@
 							unset($row[0]);
 						}
 
-						$line="{$S1} {$S2} of Alcohol users who work in the field of {$job}: ";
+						$line="The {$S1} {$S2} of Alcohol users who work in the field of {$job}: ";
 					}
 					if($S1 == 'average')
 					{
