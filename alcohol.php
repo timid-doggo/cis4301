@@ -22,28 +22,7 @@
     					Percentage
     				</option>
     			</select>
-    			of Alcohol users
-    			<!--<select id="select" name="TWO">
-    				<option value="nothing">
-    					Choose...
-    				</option>
-    				<option value="Alcohol">
-    					Alcohol
-    				</option>
-    				<option value="cocaine">
-    					Cocaine
-    				</option>
-    				<option value="heroin">
-    					Heroin
-    				</option>
-    				<option value="marijuana">
-    					Marijuana
-    				</option>
-    				<option value="tobacco">
-    					Tobacco
-    				</option>
-    			</select>-->
-    			?
+    			of Alcohol users?
     			<input type="submit" name="submit">
     		</form>
     		<!--(Amount) of people who use (substance)?
@@ -95,32 +74,11 @@
     					Non-Hispanic Multiracial
     				</option>
     			</select>
-
-    			<!--<select id="select" name="THREE">
-    				<option value="nothing">
-    					Choose...
-    				</option>
-    				<option value="alcohol">
-    					Alcohol
-    				</option>
-    				<option value="cocaine">
-    					Cocaine
-    				</option>
-    				<option value="heroin">
-    					Heroin
-    				</option>
-    				<option value="marijuana">
-    					Marijuana
-    				</option>
-    				<option value="tobacco">
-    					Tobacco
-    				</option>
-    			</select>-->
-    			?
+					?
     			<input type="submit" name="submit">
     		</form>
-    		<!--(Amount) of people who (condition) and use (substance)?
-    		(Percentage) of people who (condition) and use (substance)?-->
+    		<!--(Amount) of people who (condition)?
+    		(Percentage) of people who (condition)?-->
     	</p>
 		<p>
 			<form method="post">
@@ -155,28 +113,7 @@
 						Age of first use
 					</option>
 				</select>
-				of Alcohol users
-				<!--<select id="select" name="THREE">
-					<option value="nothing">
-						Choose...
-					</option>
-					<option value="alcohol">
-						Alcohol
-					</option>
-    				<option value="cocaine">
-    					Cocaine
-    				</option>
-    				<option value="heroin">
-    					Heroin
-    				</option>
-    				<option value="marijuana">
-    					Marijuana
-    				</option>
-    				<option value="tobacco">
-    					Tobacco
-    				</option>
-				</select>-->
-				?
+				of Alcohol users?
 				<input type="submit" name="submit">
 			</form>
 			<!--(Average) (value) of people who use (substance)?
@@ -290,7 +227,99 @@
 				{
 					if(empty($second))
 					{
-						$s = "SELECT COUNT(*) FROM consumes WHERE drug = 'Alcohol'";
+						$s = "SELECT COUNT(*)
+									FROM consumes
+									WHERE drug = 'Alcohol'";
+					}
+					else if($second = 'makemore')
+					{
+						$s = "SELECT COUNT(*)
+									FROM People, consumes, has
+									WHERE consumes.drug = 'Alcohol'
+  								AND has.income > 21000
+  								AND consumes.person = People.ID
+  								AND has.person = People.ID";
+					}
+					else if($second = 'makeless')
+					{
+						$s = "SELECT COUNT(*)
+									FROM People, consumes, has
+									WHERE consumes.drug = 'Alcohol'
+						  		AND has.income < 30000
+						  		AND consumes.person = People.ID
+						  		AND has.person = People.ID";
+					}
+					else if($second = 'unemployed')
+					{
+						$s = "SELECT COUNT(*)
+									FROM has, consumes
+									WHERE has.job = 9999
+						  		AND has.person = consumes.person
+									AND consumes.drug = 'Alcohol'";
+					}
+					else if($second = 'employed')
+					{
+						$s = "SELECT COUNT(*)
+									FROM has, consumes
+									WHERE has.job!=9999
+						  		AND has.person=consumes.person
+						  		AND consumes.drug='Alcohol'";
+					}
+					else if($second = 'nhw')
+					{
+						$s = "SELECT COUNT(*)
+									FROM people, consumes
+									WHERE race='Non-Hispanic White'
+						  		AND people.id=consumes.person
+						  		AND consumes.drug='Alcohol'";
+					}
+					else if($second = 'hispanic')
+					{
+						$s = "SELECT COUNT(*)
+									FROM people, consumes
+									WHERE race='Hispanic'
+						  		AND people.id=consumes.person
+						  		AND consumes.drug='Alcohol'";
+					}
+					else if($second = 'nhb')
+					{
+						$s = "SELECT COUNT(*)
+									FROM people, consumes
+									WHERE race='Non-Hispanic Black/African-American'
+						  		AND people.id=consumes.person
+						  		AND consumes.drug='Alcohol'";
+					}
+					else if($second = 'nhpi')
+					{
+						$s = "SELECT COUNT(*)
+									FROM people, consumes
+									WHERE race='Non-Hispanic Pacific Islander'
+						  		AND people.id=consumes.person
+						  		AND consumes.drug='Alcohol';";
+					}
+					else if($second = 'nhm')
+					{
+						$s = "SELECT COUNT(*)
+									FROM people, consumes
+									WHERE race='Non-Hispanic multicultural'
+						  		AND people.id=consumes.person
+						  		AND consumes.drug='Alcohol';";
+					}
+					else if($second = 'nha')
+					{
+						$s = "SELECT COUNT(*)
+									FROM people, consumes
+									WHERE race='Non-Hispanic Asian'
+						  		AND people.id=consumes.person
+						  		AND consumes.drug='Alcohol';";
+					}
+					else if($second = 'nhna')
+					{
+						$s = "SELECT COUNT(*)
+									FROM people, consumes
+									WHERE race='Non-Hispanic Native-American'
+						  		AND people.id=consumes.person
+						  		AND consumes.drug='Alcohol';";
 					}
 				}
 				else if($first = 'percentage')
@@ -299,7 +328,102 @@
 					{
 						$s = "SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2)) FROM has, consumes WHERE has.job!=9999 AND has.person=consumes.person AND consumes.drug='Alcohol'";
 					}
+					else if($second = 'makemore')
+					{
+						$s = "SELECT cast(round(((count(*)*100)/55270),2) AS DECIMAL(5,2))
+									FROM people, consumes, has
+									WHERE consumes.drug = 'Alcohol'
+									AND consumes.person= people.id
+									AND people.id=has.person
+									AND has.income >21000";
+					}
+					else if($second = 'makeless')
+					{
+						$s = "SELECT cast(round(((count(*)*100)/55270),2) AS DECIMAL(5,2))
+									FROM people, consumes, has
+									WHERE consumes.drug = 'Alcohol'
+									AND consumes.person= people.id
+									AND people.id=has.person
+									AND has.income <21000";
+					}
+					else if($second = 'unemployed')
+					{
+						$s = "SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2))
+									FROM has, consumes
+									WHERE has.job=9999
+  								AND has.person=consumes.person
+  								AND consumes.drug='Alcohol'";
+					}
+					else if($second = 'employed')
+					{
+						$s = "SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2))
+									FROM has, consumes
+									WHERE has.job!=9999
+  								AND has.person=consumes.person
+  								AND consumes.drug='Alcohol';";
+					}
+					else if($second = 'nhw')
+					{
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+									FROM people,consumes
+									WHERE race='Non-Hispanic White'
+						  		AND people.id=consumes.person
+						  		AND consumes.drug='Alcohol'";
+					}
+					else if($second = 'hispanic')
+					{
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+									FROM people,consumes
+									WHERE race='Hispanic'
+								  AND people.id=consumes.person
+								  AND consumes.drug='Alcohol'";
+					}
+					else if($second = 'nhb')
+					{
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+									FROM people,consumes
+									WHERE race='Non-Hispanic Black/African-American'
+								  AND people.id=consumes.person
+								  AND consumes.drug='Alcohol'";
+					}
+					else if($second = 'nhpi')
+					{
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+									FROM people,consumes
+									WHERE race='Non-Hispanic Pacific Islander'
+						  		AND people.id=consumes.person
+						  		AND consumes.drug='Alcohol'";
+					}
+					else if($second = 'nhm')
+					{
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+									FROM people,consumes
+									WHERE race='Non-Hispanic multicultural'
+									AND people.id=consumes.person
+									AND consumes.drug='Alcohol'";
+					}
+					else if($second = 'nha')
+					{
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+									FROM people,consumes
+									WHERE race='Non-Hispanic Asian'
+									AND people.id=consumes.person
+								  AND consumes.drug='Alcohol'";
+					}
+					else if($second = 'nhna')
+					{
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+									FROM people,consumes
+									WHERE race='Non-Hispanic Native-American'
+								  AND people.id=consumes.person
+								  AND consumes.drug='Alcohol'";
+					}
 				}
+
+
+
+
+
 
 			  $statement = oci_parse($connection, $s);
 			  oci_execute($statement);
