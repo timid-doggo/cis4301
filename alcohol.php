@@ -48,10 +48,10 @@
     					Choose...
     				</option>
     				<option value="makemore">
-    					Make more than
+    					Make more than $50,000
     				</option>
     				<option value="makeless">
-    					Make less than
+    					Make less than $50,000
     				</option>
     				<option value="unemployed">
     					Unemployed
@@ -214,7 +214,7 @@
 			(Median) (value) of people who use (substance)?
 			(Standard deviation) (value) of people who use (substance)?-->
 		</p>
-
+		<div class="thephp">
     	<?php
 			error_reporting(0);
 			@ini_set('display_errors', 0);
@@ -242,20 +242,20 @@
 						$s = "SELECT COUNT(*)
 									FROM People, consumes, has
 									WHERE consumes.drug = 'Alcohol'
-  								AND has.income > 21000
+  								AND has.income > 50000
   								AND consumes.person = People.ID
   								AND has.person = People.ID";
-						$line = 'The amount of alcohol users that make more than REDO THIS ONE: ';
+						$line = 'The amount of alcohol users that make more than $50,000: ';
 					}
 					else if($second == 'makeless')
 					{
 						$s = "SELECT COUNT(*)
 									FROM People, consumes, has
 									WHERE consumes.drug = 'Alcohol'
-						  		AND has.income < 30000
+						  		AND has.income < 50000
 						  		AND consumes.person = People.ID
 						  		AND has.person = People.ID";
-						$line = 'The amount of alcohol users that make less than SOMETHING PLS REDO: ';
+						$line = 'The amount of alcohol users that make less than $50,000 per year: ';
 					}
 					else if($second == 'unemployed')
 					{
@@ -273,7 +273,7 @@
 									WHERE has.job!=9999
 						  		AND has.person=consumes.person
 						  		AND consumes.drug='Alcohol'";
-						$line = 'The amount of alcohol users that are unemployed: ';
+						$line = 'The amount of alcohol users that are employed: ';
 					}
 					else if($second == 'nhw')
 					{
@@ -353,8 +353,8 @@
 									WHERE consumes.drug = 'Alcohol'
 									AND consumes.person= people.id
 									AND people.id=has.person
-									AND has.income >21000";
-									$line = 'The percentage of people who use alcohol and make more than SOMETHING PLS FIX: ';
+									AND has.income >50000";
+									$line = 'The percentage of people who use alcohol and make more than $50,000 per year ';
 					}
 					else if($second == 'makeless')
 					{
@@ -363,8 +363,8 @@
 									WHERE consumes.drug = 'Alcohol'
 									AND consumes.person= people.id
 									AND people.id=has.person
-									AND has.income <21000";
-									$line = 'The percentage of people who use alcohol and make less than SOMETHING PLS FIX: ';
+									AND has.income <50000";
+									$line = 'The percentage of people who use alcohol and make less than $50,000 per year: ';
 					}
 					else if($second == 'unemployed')
 					{
@@ -733,6 +733,7 @@
 
 			  oci_close($connection);
     	?>
+		</div>
 		</div>
 	</body>
 </html>

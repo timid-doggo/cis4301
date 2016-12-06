@@ -1,3 +1,6 @@
+html{
+  overflow:hidden;
+}
 body {
     margin-left: 50px;
     margin-right: 50px;
@@ -17,6 +20,14 @@ h1 {
     align-content: right;
     color: black;
 	padding-bottom: 50px;
+}
+
+.thephp {
+  margin-left: 100px;
+}
+
+p {
+  font-size: 250%;
 }
 
 h3, form {
