@@ -216,8 +216,8 @@
 		</p>
 
     	<?php
-			//error_reporting(0);
-		//	@ini_set('display_errors', 0);
+			error_reporting(0);
+			@ini_set('display_errors', 0);
 				$connection = oci_connect($username = 'jnovick',
 																	$password = 'password',
 																	$connection_string = '//oracle.cise.ufl.edu/orcl');
@@ -391,6 +391,7 @@
 									WHERE race='Non-Hispanic White'
 						  		AND people.id=consumes.person
 						  		AND consumes.drug='Alcohol'";
+									$line = 'The percentage of people who use alcohol and are Non-Hispanic White: ';
 					}
 					else if($second == 'hispanic')
 					{
@@ -399,6 +400,7 @@
 									WHERE race='Hispanic'
 								  AND people.id=consumes.person
 								  AND consumes.drug='Alcohol'";
+									$line = 'The percentage of people who use alcohol and are Hispanic: ';
 					}
 					else if($second == 'nhb')
 					{
@@ -407,6 +409,7 @@
 									WHERE race='Non-Hispanic Black/African-American'
 								  AND people.id=consumes.person
 								  AND consumes.drug='Alcohol'";
+									$line = 'The percentage of people who use alcohol and are Non-Hispanic Black: ';
 					}
 					else if($second == 'nhpi')
 					{
@@ -415,6 +418,7 @@
 									WHERE race='Non-Hispanic Pacific Islander'
 						  		AND people.id=consumes.person
 						  		AND consumes.drug='Alcohol'";
+									$line = 'The percentage of people who use alcohol and are Non-Hispanic Black: ';
 					}
 					else if($second == 'nhm')
 					{
@@ -423,6 +427,7 @@
 									WHERE race='Non-Hispanic multicultural'
 									AND people.id=consumes.person
 									AND consumes.drug='Alcohol'";
+									$line = 'The percentage of people who use alcohol and are Non-Hispanic multicultural: ';
 					}
 					else if($second == 'nha')
 					{
@@ -431,6 +436,7 @@
 									WHERE race='Non-Hispanic Asian'
 									AND people.id=consumes.person
 								  AND consumes.drug='Alcohol'";
+									$line = 'The percentage of people who use alcohol and are Non-Hispanic Black: ';
 					}
 					else if($second == 'nhna')
 					{
@@ -439,6 +445,7 @@
 									WHERE race='Non-Hispanic Native-American'
 								  AND people.id=consumes.person
 								  AND consumes.drug='Alcohol'";
+									$line = 'The percentage of people who use alcohol and are Non-Hispanic Native-American: ';
 					}
 				}
 				else{
