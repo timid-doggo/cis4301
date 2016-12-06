@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
 	<head>
-  		<title>Database Project </title>
+		<link rel="stylesheet" type="text/css" href="ourstyle.css">
+  	<title>Database Project </title>
 	</head>
 	<body>
+		<div id="content">
   		<h1>2014 National Survey on Drug Use and Health (NSDUH)</h1>
+			<p>
+				Welcome to our webpage! This is hosting our oracle database which contains information from the 2014 National Survey on Drug Use and
+				Health. The survey is a nation wide survey that usually picks 70,000 people to participate in this. It is apart of a huge project which
+				goals are to monitor drug abuse and see if there is a way to help people dealing with abuse. Our website will give the user the ability
+				to filter through the database in many ways and provide readily available data. The users will be able to find statistics about drug use
+				and how it affects people in all kinds of different ways. 
+
+			</p>
   		<ul>
   			<li>
   				<a href="https://nsduhweb.rti.org/respweb/homepage.cfm" > More information about NDSUH</a>
@@ -43,5 +53,6 @@
 
 			?>
 		</div>
+	</div>
 	</body>
 </html>

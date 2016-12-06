@@ -1,10 +1,11 @@
-#!/usr/local/bin/php
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="ourstyle.css">
     <title>Database Project </title>
   </head>
   <body>
+    <div id="content">
     <h1>2014 NSDUH Statistics on Tobacco</h1>
     <h3>
       What would you like to know about Tobacco users?
@@ -449,7 +450,7 @@
             {
               $s = "SELECT AVG(has.income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Cigarette'";
             }
-            
+
           }
           else if($S2 == 'firstuse')
           {
@@ -610,5 +611,6 @@
         oci_free_statement($statement);
         oci_close($connection);
       ?>
+    </div>
   </body>
 </html>
