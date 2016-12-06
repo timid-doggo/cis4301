@@ -8,38 +8,23 @@ WHERE consumes.drug = 'Alcohol'
 
 What is the mode age of people who do (substance)?
 
-SELECT STATS_MODE(Age)
-FROM People, consumes
-WHERE consumes.drug = 'Alcohol'
-  AND consumes.person = People.ID;
+SELECT STATS_MODE(Age) FROM People, consumes WHERE consumes.drug = 'Alcohol' AND consumes.person = People.ID;
 
 What is the median age of people who do (substance)?
-SELECT MEDIAN(Age)
-FROM People, consumes
-WHERE consumes.drug = 'Alcohol'
-  AND consumes.person = People.ID;
+
+SELECT MEDIAN(Age) FROM People, consumes WHERE consumes.drug = 'Alcohol' AND consumes.person = People.ID;
 
 What is the standard deviation age of people who do (substance)?
 
-SELECT STDDEV(Age)
-FROM People, consumes
-WHERE consumes.drug = 'Alcohol'
-  AND consumes.person = People.ID;
+SELECT STDDEV(Age) FROM People, consumes WHERE consumes.drug = 'Alcohol' AND consumes.person = People.ID;
 
 Amount of people who do (substance)?
 
-SELELCT COUNT(*)
-FROM People, consumes
-WHERE consumes.drug = 'Alcohol';
+SELECT COUNT(*) FROM People, consumesWHERE consumes.drug = 'Alcohol';
 
 Amount of people who do (substance) and make more than (amount)?
 
-SELELCT COUNT(*)
-FROM People, consumes, has
-WHERE consumes.drug = 'Alcohol'
-  AND has.income > 21000
-  AND consumes.person = People.ID
-  AND has.person = People.ID;
+SELECT COUNT(*) FROM People, consumes, has WHERE consumes.drug = 'Alcohol' AND has.income > 21000 AND consumes.person = People.ID AND has.person = People.ID;
 
 Percentage of people who do (substance)?
 
@@ -48,7 +33,7 @@ FROM People, consumes
 WHERE consumes.drug = 'Alcohol'
   AND consumes.person = People.ID;
 
-Percentage of people who do (substance) and make more than (amount)?
+!!!!!!!!Percentage of people who do (substance) and make more than (amount)?
 
 SELECT COUNT(ID)/100
 FROM People, consumes, has
@@ -60,65 +45,35 @@ WHERE consumes.drug = 'Alcohol'
 Vincent
 What is the average income of people who do (substance)?
 
-SELECT AVG(Income)
-FROM People, consumes, has
-WHERE consumes.drug = 'Alcohol'
-  AND consumes.person = People.ID;
+SELECT AVG(Income) FROM People, consumes, has WHERE consumes.drug = 'Alcohol' AND consumes.person = People.ID;
 
 What is the mode income of people who do (substance)?
 
-SELECT STATS_MODE(Income)
-FROM People, consumes, has
-WHERE consumes.drug = 'Alcohol'
-  AND consumes.person = People.ID;
+SELECT STATS_MODE(Income) FROM People, consumes, has WHERE consumes.drug = 'Alcohol' AND consumes.person = People.ID AND has.person = People.ID;
 
 What is the median income of people who do (substance)?
 
-SELECT MEDIAN(Income)
-FROM People, consumes, has
-WHERE consumes.drug = 'Alcohol'
-  AND consumes.person = People.ID;
+SELECT MEDIAN(Income) FROM People, consumes, has WHERE consumes.drug = 'Alcohol' AND consumes.person = People.ID AND consumes.person = has.person;
 
 What is the standard deviation income of people who do (substance)?
 
-SELECT STDDEV(Income)
-FROM People, consumes, has
-WHERE consumes.drug = 'Alcohol'
-  AND consumes.person = People.ID;
+SELECT STDDEV(Income) FROM People, consumes, has WHERE consumes.drug = 'Alcohol' AND consumes.person = People.ID AND has.person = consumes.person;
 
 Amount of people who do (substance) and are unemployed?
 
-SELECT COUNT(*)
-FROM has, consumes
-WHERE has.job = 9999
-  AND has.person = consumes.person
-  AND consumes.drug = 'Alcohol';
+SELECT COUNT(*) FROM has, consumes WHERE has.job = 9999 AND has.person = consumes.person AND consumes.drug = 'Alcohol';
 
 Amount of people who do (substance) and make less than (amount)?
 
-SELELCT COUNT(*)
-FROM People, consumes, has
-WHERE consumes.drug = 'Alcohol'
-  AND has.income < 30000
-  AND consumes.person = People.ID
-  AND has.person = People.ID;
+SELECT COUNT(*) FROM People, consumes, has WHERE consumes.drug = 'Alcohol' AND has.income < 30000 AND consumes.person = People.ID AND has.person = People.ID;
 
 Percentage of people who do (substance) and are unemployed?
 
-SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2))
-FROM has, consumes
-WHERE has.job = 9999
-  AND has.person = consumes.person
-  AND consumes.drug = 'Alcohol';
+SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2)) FROM has, consumes WHERE has.job = 9999 AND has.person = consumes.person AND consumes.drug = 'Alcohol';
 
 Percentage of people who do (substance) and make less than (amount)?
 
-SELECT cast(round(((count(ID)*100)/55270),2) as decimal(5,2))
-FROM People, consumes, has
-WHERE consumes.drug = 'Alcohol'
-  AND consumes.person = People.ID
-  AND People.ID = has.person
-  AND has.income < 30000;
+SELECT cast(round(((count(ID)*100)/55270),2) as decimal(5,2)) FROM People, consumes, has WHERE consumes.drug = 'Alcohol' AND consumes.person = People.ID AND People.ID = has.person AND has.income < 30000;
 
 
 
@@ -128,15 +83,11 @@ WHERE consumes.drug = 'Alcohol'
 Juan
 What is the average age of first use of people who do (substance)?
 
-SELECT AVG(firstUse)
-FROM consumes
-WHERE drug='Alcohol';
+SELECT AVG(firstUse) FROM consumes WHERE drug='Alcohol';
 
 What is the mode age of first use of people who do (substance)?
 
-SELECT STATS_MODE(firstuse)
-FROM consumes
-WHERE drug='Alcohol';
+SELECT STATS_MODE(firstuse) FROM consumes WHERE drug='Alcohol';
 
 What is the median age of first use of people who do (substance)?
 
