@@ -229,13 +229,13 @@
           {
             $s = "SELECT COUNT(*)
                   FROM consumes
-                  WHERE drug = 'Tobacco'";
+                  WHERE drug = 'Cigarette'";
           }
           else if($second == 'makemore')
           {
             $s = "SELECT COUNT(*)
                   FROM People, consumes, has
-                  WHERE consumes.drug = 'Tobacco'
+                  WHERE consumes.drug = 'Cigarette'
                   AND has.income > 21000
                   AND consumes.person = People.ID
                   AND has.person = People.ID";
@@ -244,7 +244,7 @@
           {
             $s = "SELECT COUNT(*)
                   FROM People, consumes, has
-                  WHERE consumes.drug = 'Tobacco'
+                  WHERE consumes.drug = 'Cigarette'
                   AND has.income < 30000
                   AND consumes.person = People.ID
                   AND has.person = People.ID";
@@ -255,7 +255,7 @@
                   FROM has, consumes
                   WHERE has.job = 9999
                   AND has.person = consumes.person
-                  AND consumes.drug = 'Tobacco'";
+                  AND consumes.drug = 'Cigarette'";
           }
           else if($second == 'employed')
           {
@@ -263,7 +263,7 @@
                   FROM has, consumes
                   WHERE has.job!=9999
                   AND has.person=consumes.person
-                  AND consumes.drug='Tobacco'";
+                  AND consumes.drug='Cigarette'";
           }
           else if($second == 'nhw')
           {
@@ -271,7 +271,7 @@
                   FROM people, consumes
                   WHERE race='Non-Hispanic White'
                   AND people.id=consumes.person
-                  AND consumes.drug='Tobacco'";
+                  AND consumes.drug='Cigarette'";
           }
           else if($second == 'hispanic')
           {
@@ -279,7 +279,7 @@
                   FROM people, consumes
                   WHERE race='Hispanic'
                   AND people.id=consumes.person
-                  AND consumes.drug='Tobacco'";
+                  AND consumes.drug='Cigarette'";
           }
           else if($second == 'nhb')
           {
@@ -287,7 +287,7 @@
                   FROM people, consumes
                   WHERE race='Non-Hispanic Black/African-American'
                   AND people.id=consumes.person
-                  AND consumes.drug='Tobacco'";
+                  AND consumes.drug='Cigarette'";
           }
           else if($second == 'nhpi')
           {
@@ -295,7 +295,7 @@
                   FROM people, consumes
                   WHERE race='Non-Hispanic Pacific Islander'
                   AND people.id=consumes.person
-                  AND consumes.drug='Tobacco'";
+                  AND consumes.drug='Cigarette'";
           }
           else if($second == 'nhm')
           {
@@ -303,7 +303,7 @@
                   FROM people, consumes
                   WHERE race='Non-Hispanic multicultural'
                   AND people.id=consumes.person
-                  AND consumes.drug='Tobacco'";
+                  AND consumes.drug='Cigarette'";
           }
           else if($second == 'nha')
           {
@@ -311,7 +311,7 @@
                   FROM people, consumes
                   WHERE race='Non-Hispanic Asian'
                   AND people.id=consumes.person
-                  AND consumes.drug='Tobacco'";
+                  AND consumes.drug='Cigarette'";
           }
           else if($second == 'nhna')
           {
@@ -319,20 +319,20 @@
                   FROM people, consumes
                   WHERE race='Non-Hispanic Native-American'
                   AND people.id=consumes.person
-                  AND consumes.drug='Tobacco'";
+                  AND consumes.drug='Cigarette'";
           }
         }
         else if($first == 'percentage')
         {
           if(empty($second))
           {
-            $s = "SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2)) FROM has, consumes WHERE has.job!=9999 AND has.person=consumes.person AND consumes.drug='Tobacco'";
+            $s = "SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2)) FROM has, consumes WHERE has.job!=9999 AND has.person=consumes.person AND consumes.drug='Cigarette'";
           }
           else if($second == 'makemore')
           {
             $s = "SELECT cast(round(((count(*)*100)/55270),2) AS DECIMAL(5,2))
                   FROM people, consumes, has
-                  WHERE consumes.drug = 'Tobacco'
+                  WHERE consumes.drug = 'Cigarette'
                   AND consumes.person= people.id
                   AND people.id=has.person
                   AND has.income >21000";
@@ -341,7 +341,7 @@
           {
             $s = "SELECT cast(round(((count(*)*100)/55270),2) AS DECIMAL(5,2))
                   FROM people, consumes, has
-                  WHERE consumes.drug = 'Tobacco'
+                  WHERE consumes.drug = 'Cigarette'
                   AND consumes.person= people.id
                   AND people.id=has.person
                   AND has.income <21000";
@@ -352,7 +352,7 @@
                   FROM has, consumes
                   WHERE has.job=9999
                   AND has.person=consumes.person
-                  AND consumes.drug='Tobacco'";
+                  AND consumes.drug='Cigarette'";
           }
           else if($second == 'employed')
           {
@@ -360,7 +360,7 @@
                   FROM has, consumes
                   WHERE has.job!=9999
                   AND has.person=consumes.person
-                  AND consumes.drug='Tobacco'";
+                  AND consumes.drug='Cigarette'";
           }
           else if($second == 'nhw')
           {
@@ -368,7 +368,7 @@
                   FROM people,consumes
                   WHERE race='Non-Hispanic White'
                   AND people.id=consumes.person
-                  AND consumes.drug='Tobacco'";
+                  AND consumes.drug='Cigarette'";
           }
           else if($second == 'hispanic')
           {
@@ -376,7 +376,7 @@
                   FROM people,consumes
                   WHERE race='Hispanic'
                   AND people.id=consumes.person
-                  AND consumes.drug='Tobacco'";
+                  AND consumes.drug='Cigarette'";
           }
           else if($second == 'nhb')
           {
@@ -384,7 +384,7 @@
                   FROM people,consumes
                   WHERE race='Non-Hispanic Black/African-American'
                   AND people.id=consumes.person
-                  AND consumes.drug='Tobacco'";
+                  AND consumes.drug='Cigarette'";
           }
           else if($second == 'nhpi')
           {
@@ -392,7 +392,7 @@
                   FROM people,consumes
                   WHERE race='Non-Hispanic Pacific Islander'
                   AND people.id=consumes.person
-                  AND consumes.drug='Tobacco'";
+                  AND consumes.drug='Cigarette'";
           }
           else if($second == 'nhm')
           {
@@ -400,7 +400,7 @@
                   FROM people,consumes
                   WHERE race='Non-Hispanic multicultural'
                   AND people.id=consumes.person
-                  AND consumes.drug='Tobacco'";
+                  AND consumes.drug='Cigarette'";
           }
           else if($second == 'nha')
           {
@@ -408,7 +408,7 @@
                   FROM people,consumes
                   WHERE race='Non-Hispanic Asian'
                   AND people.id=consumes.person
-                  AND consumes.drug='Tobacco'";
+                  AND consumes.drug='Cigarette'";
           }
           else if($second == 'nhna')
           {
@@ -416,7 +416,7 @@
                   FROM people,consumes
                   WHERE race='Non-Hispanic Native-American'
                   AND people.id=consumes.person
-                  AND consumes.drug='Tobacco'";
+                  AND consumes.drug='Cigarette'";
           }
         }
         if($S1 == 'average')
@@ -427,12 +427,12 @@
             {
               $s = "SELECT ROUND(AVG(Age))
                     FROM People, consumes
-                    WHERE consumes.drug = 'Tobacco'
+                    WHERE consumes.drug = 'Cigarette'
                     AND consumes.person = People.ID";
             }
             else
             {
-              $s = "SELECT AVG(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Tobacco'";
+              $s = "SELECT AVG(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Cigarette'";
             }
           }
           else if($S2 == 'income')
@@ -441,13 +441,13 @@
             {
               $s = "SELECT ROUND(AVG(Income),2)
                     FROM People, consumes, has
-                    WHERE consumes.drug = 'Tobacco'
+                    WHERE consumes.drug = 'Cigarette'
                     AND consumes.person = People.ID
                     AND has.person = consumes.person";
             }
             else
             {
-              $s = "SELECT AVG(has.income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Tobacco'";
+              $s = "SELECT AVG(has.income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Cigarette'";
             }
             
           }
@@ -457,11 +457,11 @@
             {
               $s = "SELECT ROUND(AVG(firstUse))
                     FROM consumes
-                    WHERE drug='Tobacco'";
+                    WHERE drug='Cigarette'";
             }
             else
             {
-              $s = "SELECT AVG(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Tobacco'";
+              $s = "SELECT AVG(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Cigarette'";
             }
           }
         }
@@ -473,12 +473,12 @@
             {
               $s = "SELECT STATS_MODE(Age)
                     FROM People, consumes
-                    WHERE consumes.drug = 'Tobacco'
+                    WHERE consumes.drug = 'Cigarette'
                     AND consumes.person = People.ID";
             }
             else
             {
-              $s = "SELECT STATS_MODE(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Tobacco'";
+              $s = "SELECT STATS_MODE(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Cigarette'";
             }
           }
           else if($S2 == 'income')
@@ -487,13 +487,13 @@
             {
               $s = "SELECT STATS_MODE(Income)
                     FROM People, consumes, has
-                    WHERE consumes.drug = 'Tobacco'
+                    WHERE consumes.drug = 'Cigarette'
                     AND consumes.person = People.ID
                     AND has.person = People.ID";
             }
             else
             {
-              $s = "SELECT STATS_MODE(has.income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Tobacco'";
+              $s = "SELECT STATS_MODE(has.income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Cigarette'";
             }
           }
           else if($S2 == 'firstuse')
@@ -502,11 +502,11 @@
             {
               $s = "SELECT STATS_MODE(firstuse)
                     FROM consumes
-                    WHERE drug='Tobacco'";
+                    WHERE drug='Cigarette'";
             }
             else
             {
-              $s = "SELECT STATS_MODE(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Tobacco'";
+              $s = "SELECT STATS_MODE(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Cigarette'";
             }
           }
         }
@@ -518,12 +518,12 @@
             {
               $s = "SELECT MEDIAN(Age)
                     FROM People, consumes
-                    WHERE consumes.drug = 'Tobacco'
+                    WHERE consumes.drug = 'Cigarette'
                     AND consumes.person = People.ID";
             }
             else
             {
-              $s = "SELECT median(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Tobacco'";
+              $s = "SELECT median(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Cigarette'";
             }
           }
           else if($S2 == 'income')
@@ -532,13 +532,13 @@
             {
               $s = "SELECT MEDIAN(Income)
                     FROM People, consumes, has
-                    WHERE consumes.drug = 'Tobacco'
+                    WHERE consumes.drug = 'Cigarette'
                     AND consumes.person = People.ID
                     AND consumes.person = has.person";
             }
             else
             {
-              $s = "SELECT median(income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Tobacco'";
+              $s = "SELECT median(income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Cigarette'";
             }
           }
           else if($S2 == 'firstuse')
@@ -547,11 +547,11 @@
             {
               $s = "SELECT MEDIAN(firstuse)
                     FROM consumes
-                    WHERE drug='Tobacco'";
+                    WHERE drug='Cigarette'";
             }
             else
             {
-              $s = "SELECT median(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Tobacco'";
+              $s = "SELECT median(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Cigarette'";
             }
           }
         }
@@ -563,12 +563,12 @@
             {
               $s = "SELECT ROUND(STDDEV(Age))
                     FROM People, consumes
-                    WHERE consumes.drug = 'Tobacco'
+                    WHERE consumes.drug = 'Cigarette'
                     AND consumes.person = People.ID";
             }
             else
             {
-              $s = "SELECT STDDEV(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Tobacco'";
+              $s = "SELECT STDDEV(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Cigarette'";
             }
           }
           else if($S2 == 'income')
@@ -577,13 +577,13 @@
             {
               $s = "SELECT ROUND(STDDEV(Income),2)
                     FROM People, consumes, has
-                    WHERE consumes.drug = 'Tobacco'
+                    WHERE consumes.drug = 'Cigarette'
                     AND consumes.person = People.ID
                     AND has.person = consumes.person";
             }
             else
             {
-              $s = "SELECT STDDEV(income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Tobacco'";
+              $s = "SELECT STDDEV(income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Cigarette'";
             }
           }
           else if($S2 == 'firstuse')
@@ -592,11 +592,11 @@
             {
               $s = "SELECT ROUND(STDDEV(firstuse))
                     FROM consumes
-                    WHERE drug='Tobacco'";
+                    WHERE drug='Cigarette'";
             }
             else
             {
-              $s = "SELECT STDDEV(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Tobacco'";
+              $s = "SELECT STDDEV(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Cigarette'";
             }
           }
         }
