@@ -19,6 +19,14 @@ h1 {
 	padding-bottom: 50px;
 }
 
+.thephp {
+  margin-left: 100px;
+}
+
+p {
+  font-size: 250%;
+}
+
 h3, form {
     margin-left: 50px;
 }
