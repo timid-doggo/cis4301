@@ -15,22 +15,33 @@
 				<a href="http://localhost/page1.php" target "_branch">Drug of Choice</a>
 			</li>
 		</ul>
-		<?php
-			$connection = oci_connect($username = 'jnovick',
-		                            $password = 'password',
-		                            $connection_string = '//oracle.cise.ufl.edu/orcl');
-			$statement = oci_parse($connection, 'SELECT type FROM drugs');
-			oci_execute($statement);
+		<div> Total Number of Tuples= 
+			<?php
+				$connection = oci_connect($username = 'jnovick',
+			                            $password = 'password',
+		        	                    $connection_string = '//oracle.cise.ufl.edu/orcl');
+				$statement = oci_parse($connection, 'select sum(c)
+									from (
+									  select count(*) as c from PEOPLE 
+									  union all select count(*) as c from CONSUMES
+									  union all select count(*) as c from DRUGS
+									  union all select count(*) as c from EDUCATION
+									  union all select count(*) as c from HAS
+									  union all select count(*) as c from HASHAD
+									  union all select count(*) as c from EMPLOYMENT
+									);');
+				oci_execute($statement);
 
-			while (($row = oci_fetch_array($statement, OCI_BOTH)) != false)
-			{
-								echo $row[0]."<br>";
-			}
+				while (($row = oci_fetch_array($statement, OCI_BOTH)) != false)
+				{
+									echo $row[0]."<br>";
+				}
 
-	oci_free_statement($statement);
+				oci_free_statement($statement);
 
-			oci_close($connection);
+				oci_close($connection);
 
-		?>
+			?>
+		</div>
 	</body>
 </html>
