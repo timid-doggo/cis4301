@@ -463,7 +463,7 @@
 							unset($row[0]);
 						}
 
-						$line="The {$S1} {$S2} of Alcohol users who work in the field of {$job}: ";
+						$line="The {$S1} {$S2} of Alcohol users who work in the field of {$job} : ";
 					}
 					if($S1 == 'average')
 					{
