@@ -15,14 +15,14 @@
 				<a href="http://localhost/cis4301/page1.php" target "_branch">Drug of Choice</a>
 			</li>
 		</ul>
-		<div> Total Number of Tuples= 
+		<div> Total Number of Tuples=
 			<?php
 				$connection = oci_connect($username = 'jnovick',
 			                            $password = 'password',
 		        	                    $connection_string = '//oracle.cise.ufl.edu/orcl');
 				$statement = oci_parse($connection, 'select sum(c)
 									from (
-									  select count(*) as c from PEOPLE 
+									  select count(*) as c from PEOPLE
 									  union all select count(*) as c from CONSUMES
 									  union all select count(*) as c from DRUGS
 									  union all select count(*) as c from EDUCATION

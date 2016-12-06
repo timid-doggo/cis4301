@@ -223,7 +223,7 @@
 				$first = $_POST['ONE'];
 				$second = $_POST['TWO'];
 
-				if($first = 'amount')
+				if($first == 'amount')
 				{
 					if(empty($second))
 					{
@@ -231,7 +231,7 @@
 									FROM consumes
 									WHERE drug = 'Alcohol'";
 					}
-					else if($second = 'makemore')
+					else if($second == 'makemore')
 					{
 						$s = "SELECT COUNT(*)
 									FROM People, consumes, has
@@ -240,7 +240,7 @@
   								AND consumes.person = People.ID
   								AND has.person = People.ID";
 					}
-					else if($second = 'makeless')
+					else if($second == 'makeless')
 					{
 						$s = "SELECT COUNT(*)
 									FROM People, consumes, has
@@ -249,7 +249,7 @@
 						  		AND consumes.person = People.ID
 						  		AND has.person = People.ID";
 					}
-					else if($second = 'unemployed')
+					else if($second == 'unemployed')
 					{
 						$s = "SELECT COUNT(*)
 									FROM has, consumes
@@ -257,7 +257,7 @@
 						  		AND has.person = consumes.person
 									AND consumes.drug = 'Alcohol'";
 					}
-					else if($second = 'employed')
+					else if($second == 'employed')
 					{
 						$s = "SELECT COUNT(*)
 									FROM has, consumes
@@ -265,7 +265,7 @@
 						  		AND has.person=consumes.person
 						  		AND consumes.drug='Alcohol'";
 					}
-					else if($second = 'nhw')
+					else if($second == 'nhw')
 					{
 						$s = "SELECT COUNT(*)
 									FROM people, consumes
@@ -273,7 +273,7 @@
 						  		AND people.id=consumes.person
 						  		AND consumes.drug='Alcohol'";
 					}
-					else if($second = 'hispanic')
+					else if($second == 'hispanic')
 					{
 						$s = "SELECT COUNT(*)
 									FROM people, consumes
@@ -281,7 +281,7 @@
 						  		AND people.id=consumes.person
 						  		AND consumes.drug='Alcohol'";
 					}
-					else if($second = 'nhb')
+					else if($second == 'nhb')
 					{
 						$s = "SELECT COUNT(*)
 									FROM people, consumes
@@ -289,46 +289,46 @@
 						  		AND people.id=consumes.person
 						  		AND consumes.drug='Alcohol'";
 					}
-					else if($second = 'nhpi')
+					else if($second == 'nhpi')
 					{
 						$s = "SELECT COUNT(*)
 									FROM people, consumes
 									WHERE race='Non-Hispanic Pacific Islander'
 						  		AND people.id=consumes.person
-						  		AND consumes.drug='Alcohol';";
+						  		AND consumes.drug='Alcohol'";
 					}
-					else if($second = 'nhm')
+					else if($second == 'nhm')
 					{
 						$s = "SELECT COUNT(*)
 									FROM people, consumes
 									WHERE race='Non-Hispanic multicultural'
 						  		AND people.id=consumes.person
-						  		AND consumes.drug='Alcohol';";
+						  		AND consumes.drug='Alcohol'";
 					}
-					else if($second = 'nha')
+					else if($second == 'nha')
 					{
 						$s = "SELECT COUNT(*)
 									FROM people, consumes
 									WHERE race='Non-Hispanic Asian'
 						  		AND people.id=consumes.person
-						  		AND consumes.drug='Alcohol';";
+						  		AND consumes.drug='Alcohol'";
 					}
-					else if($second = 'nhna')
+					else if($second == 'nhna')
 					{
 						$s = "SELECT COUNT(*)
 									FROM people, consumes
 									WHERE race='Non-Hispanic Native-American'
 						  		AND people.id=consumes.person
-						  		AND consumes.drug='Alcohol';";
+						  		AND consumes.drug='Alcohol'";
 					}
 				}
-				else if($first = 'percentage')
+				else if($first == 'percentage')
 				{
 					if(empty($second))
 					{
 						$s = "SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2)) FROM has, consumes WHERE has.job!=9999 AND has.person=consumes.person AND consumes.drug='Alcohol'";
 					}
-					else if($second = 'makemore')
+					else if($second == 'makemore')
 					{
 						$s = "SELECT cast(round(((count(*)*100)/55270),2) AS DECIMAL(5,2))
 									FROM people, consumes, has
@@ -337,7 +337,7 @@
 									AND people.id=has.person
 									AND has.income >21000";
 					}
-					else if($second = 'makeless')
+					else if($second == 'makeless')
 					{
 						$s = "SELECT cast(round(((count(*)*100)/55270),2) AS DECIMAL(5,2))
 									FROM people, consumes, has
@@ -346,7 +346,7 @@
 									AND people.id=has.person
 									AND has.income <21000";
 					}
-					else if($second = 'unemployed')
+					else if($second == 'unemployed')
 					{
 						$s = "SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2))
 									FROM has, consumes
@@ -354,15 +354,15 @@
   								AND has.person=consumes.person
   								AND consumes.drug='Alcohol'";
 					}
-					else if($second = 'employed')
+					else if($second == 'employed')
 					{
 						$s = "SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2))
 									FROM has, consumes
 									WHERE has.job!=9999
   								AND has.person=consumes.person
-  								AND consumes.drug='Alcohol';";
+  								AND consumes.drug='Alcohol'";
 					}
-					else if($second = 'nhw')
+					else if($second == 'nhw')
 					{
 						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
 									FROM people,consumes
@@ -370,7 +370,7 @@
 						  		AND people.id=consumes.person
 						  		AND consumes.drug='Alcohol'";
 					}
-					else if($second = 'hispanic')
+					else if($second == 'hispanic')
 					{
 						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
 									FROM people,consumes
@@ -378,7 +378,7 @@
 								  AND people.id=consumes.person
 								  AND consumes.drug='Alcohol'";
 					}
-					else if($second = 'nhb')
+					else if($second == 'nhb')
 					{
 						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
 									FROM people,consumes
@@ -386,7 +386,7 @@
 								  AND people.id=consumes.person
 								  AND consumes.drug='Alcohol'";
 					}
-					else if($second = 'nhpi')
+					else if($second == 'nhpi')
 					{
 						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
 									FROM people,consumes
@@ -394,7 +394,7 @@
 						  		AND people.id=consumes.person
 						  		AND consumes.drug='Alcohol'";
 					}
-					else if($second = 'nhm')
+					else if($second == 'nhm')
 					{
 						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
 									FROM people,consumes
@@ -402,7 +402,7 @@
 									AND people.id=consumes.person
 									AND consumes.drug='Alcohol'";
 					}
-					else if($second = 'nha')
+					else if($second == 'nha')
 					{
 						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
 									FROM people,consumes
@@ -410,7 +410,7 @@
 									AND people.id=consumes.person
 								  AND consumes.drug='Alcohol'";
 					}
-					else if($second = 'nhna')
+					else if($second == 'nhna')
 					{
 						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
 									FROM people,consumes
@@ -420,17 +420,13 @@
 					}
 				}
 
-
-
-
-
-
 			  $statement = oci_parse($connection, $s);
 			  oci_execute($statement);
 
 			  while (($row = oci_fetch_array($statement, OCI_BOTH)) != false)
 			  {
 					echo $row[0]."<br>";
+					unset($row[0]);
 			  }
 
 			  oci_free_statement($statement);
