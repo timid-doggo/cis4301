@@ -242,20 +242,20 @@
 						$s = "SELECT COUNT(*)
 									FROM People, consumes, has
 									WHERE consumes.drug = 'Alcohol'
-  								AND has.income > 21000
+  								AND has.income > 50000
   								AND consumes.person = People.ID
   								AND has.person = People.ID";
-						$line = 'The amount of alcohol users that make more than REDO THIS ONE: ';
+						$line = 'The amount of alcohol users that make more than $50,000: ';
 					}
 					else if($second == 'makeless')
 					{
 						$s = "SELECT COUNT(*)
 									FROM People, consumes, has
 									WHERE consumes.drug = 'Alcohol'
-						  		AND has.income < 30000
+						  		AND has.income < 50000
 						  		AND consumes.person = People.ID
 						  		AND has.person = People.ID";
-						$line = 'The amount of alcohol users that make less than SOMETHING PLS REDO: ';
+						$line = 'The amount of alcohol users that make less than $50,000 per year: ';
 					}
 					else if($second == 'unemployed')
 					{
@@ -353,8 +353,8 @@
 									WHERE consumes.drug = 'Alcohol'
 									AND consumes.person= people.id
 									AND people.id=has.person
-									AND has.income >21000";
-									$line = 'The percentage of people who use alcohol and make more than SOMETHING PLS FIX: ';
+									AND has.income >50000";
+									$line = 'The percentage of people who use alcohol and make more than $50,000 per year ';
 					}
 					else if($second == 'makeless')
 					{
@@ -363,8 +363,8 @@
 									WHERE consumes.drug = 'Alcohol'
 									AND consumes.person= people.id
 									AND people.id=has.person
-									AND has.income <21000";
-									$line = 'The percentage of people who use alcohol and make less than SOMETHING PLS FIX: ';
+									AND has.income <50000";
+									$line = 'The percentage of people who use alcohol and make less than $50,000 per year: ';
 					}
 					else if($second == 'unemployed')
 					{
