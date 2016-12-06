@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="ourstyle.css">
   	<title>Database Project </title>
 	</head>
 	<body>
+		<div id="content">
   	<h1>2014 NSDUH Statistics on Alcohol</h1>
     <h3>
       What would you like to know about Alcohol users?
@@ -426,7 +428,7 @@
 				}
 				else{
 					$t="select type from Employment where JOBID={$S3}";
-					
+
 					$statement = oci_parse($connection, $t);
 					oci_execute($statement);
 					while (($row = oci_fetch_array($statement, OCI_BOTH)) != false)
@@ -434,7 +436,7 @@
 						$job = $row[0]."<br>";
 						unset($row[0]);
 					}
-					
+
 					$line="{$S1} {$S2} of Alcohol users who work in the field of {$job}.";
 					if($S1 == 'average')
 					{
@@ -632,5 +634,6 @@
 
 			  oci_close($connection);
     	?>
+		</div>
 	</body>
 </html>
