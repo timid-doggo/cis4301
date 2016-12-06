@@ -48,10 +48,10 @@
     					Choose...
     				</option>
     				<option value="makemore">
-    					Make more than
+    					Make more than $50,000
     				</option>
     				<option value="makeless">
-    					Make less than
+    					Make less than $50,000
     				</option>
     				<option value="unemployed">
     					Unemployed
@@ -245,7 +245,7 @@
   								AND has.income > 50000
   								AND consumes.person = People.ID
   								AND has.person = People.ID";
-						$line = 'The amount of tobacco users that make more than $50000: ';
+						$line = 'The amount of tobacco users that make more than $50,000: ';
 					}
 					else if($second == 'makeless')
 					{
@@ -255,7 +255,7 @@
 						  		AND has.income < 50000
 						  		AND consumes.person = People.ID
 						  		AND has.person = People.ID";
-						$line = 'The amount of tobacco users that make less than $50000: ';
+						$line = 'The amount of tobacco users that make less than $50,000: ';
 					}
 					else if($second == 'unemployed')
 					{
@@ -354,7 +354,7 @@
 									AND consumes.person= people.id
 									AND people.id=has.person
 									AND has.income >50000";
-									$line = 'The percentage of people who use tobacco and make more than SOMETHING PLS FIX: ';
+									$line = 'The percentage of people who use tobacco and make more than $50,000: ';
 					}
 					else if($second == 'makeless')
 					{
@@ -364,7 +364,7 @@
 									AND consumes.person= people.id
 									AND people.id=has.person
 									AND has.income <50000";
-									$line = 'The percentage of people who use tobacco and make less than SOMETHING PLS FIX: ';
+									$line = 'The percentage of people who use tobacco and make less than $50,000: ';
 					}
 					else if($second == 'unemployed')
 					{

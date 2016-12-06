@@ -48,10 +48,10 @@
     					Choose...
     				</option>
     				<option value="makemore">
-    					Make more than
+    					Make more than $50,000
     				</option>
     				<option value="makeless">
-    					Make less than
+    					Make less than $50,000
     				</option>
     				<option value="unemployed">
     					Unemployed
@@ -242,20 +242,20 @@
 						$s = "SELECT COUNT(*)
 									FROM People, consumes, has
 									WHERE consumes.drug = 'Heroin'
-  								AND has.income > 21000
+  								AND has.income > 50000
   								AND consumes.person = People.ID
   								AND has.person = People.ID";
-						$line = 'The amount of heroin users that make more than REDO THIS ONE: ';
+						$line = 'The amount of heroin users that make more than $50,000: ';
 					}
 					else if($second == 'makeless')
 					{
 						$s = "SELECT COUNT(*)
 									FROM People, consumes, has
 									WHERE consumes.drug = 'Heroin'
-						  		AND has.income < 30000
+						  		AND has.income < 50000
 						  		AND consumes.person = People.ID
 						  		AND has.person = People.ID";
-						$line = 'The amount of heroin users that make less than SOMETHING PLS REDO: ';
+						$line = 'The amount of heroin users that make less than $50,000: ';
 					}
 					else if($second == 'unemployed')
 					{
@@ -353,8 +353,8 @@
 									WHERE consumes.drug = 'Heroin'
 									AND consumes.person= people.id
 									AND people.id=has.person
-									AND has.income >21000";
-									$line = 'The percentage of people who use heroin and make more than SOMETHING PLS FIX: ';
+									AND has.income >50000";
+									$line = 'The percentage of people who use heroin and make more than $50,000: ';
 					}
 					else if($second == 'makeless')
 					{
@@ -363,8 +363,8 @@
 									WHERE consumes.drug = 'Heroin'
 									AND consumes.person= people.id
 									AND people.id=has.person
-									AND has.income <21000";
-									$line = 'The percentage of people who use heroin and make less than SOMETHING PLS FIX: ';
+									AND has.income <50000";
+									$line = 'The percentage of people who use heroin and make less than $50,000: ';
 					}
 					else if($second == 'unemployed')
 					{
