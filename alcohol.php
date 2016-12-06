@@ -278,40 +278,40 @@
 		</p>
 
     	<?php
-				//$connection = oci_connect($username = 'jnovick',
-				//													$password = 'password',
-				//													$connection_string = '//oracle.cise.ufl.edu/orcl');
+				$connection = oci_connect($username = 'jnovick',
+																	$password = 'password',
+																	$connection_string = '//oracle.cise.ufl.edu/orcl');
 
 
 				$first = $_POST['ONE'];
 				$second = $_POST['TWO'];
 
-				if(empty($second))
+				if($first = 'amount')
 				{
-					if($first=='amount')
+					if(empty($second))
 					{
-						$s = "SELECT COUNT(*) FROM People, consumes WHERE consumes.drug = 'Alcohol'";
+						$s = "SELECT COUNT(*) FROM consumes WHERE drug = 'Alcohol'";
 					}
-					else if($first == 'percentage')
+				}
+				else if($first = 'percentage')
+				{
+					if(empty($second))
 					{
 						$s = "SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2)) FROM has, consumes WHERE has.job!=9999 AND has.person=consumes.person AND consumes.drug='Alcohol'";
 					}
 				}
 
+			  $statement = oci_parse($connection, $s);
+			  oci_execute($statement);
 
+			  while (($row = oci_fetch_array($statement, OCI_BOTH)) != false)
+			  {
+					echo $row[0]."<br>";
+			  }
 
-				//$s = "";
-			  //$statement = oci_parse($connection, $s);
-			  //oci_execute($statement);
+			  oci_free_statement($statement);
 
-			  //while (($row = oci_fetch_array($statement, OCI_BOTH)) != false)
-			  //{
-				//	echo $row[0]."<br>";
-			  //}
-
-			  //oci_free_statement($statement);
-
-			  //oci_close($connection);
+			  oci_close($connection);
     	?>
 	</body>
 </html>
