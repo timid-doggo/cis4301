@@ -315,10 +315,10 @@
 					{
 						$s = "SELECT COUNT(*)
 									FROM people, consumes
-									WHERE race='Non-Hispanic multicultural'
+									WHERE race='Non-Hispanic multiracial'
 						  		AND people.id=consumes.person
 						  		AND consumes.drug='Alcohol'";
-									$line = 'The amount of alcohol users that are Non-Hispanic multicultural: ';
+									$line = 'The amount of alcohol users that are Non-Hispanic multiracial: ';
 					}
 					else if($second == 'nha')
 					{
@@ -424,10 +424,10 @@
 					{
 						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
 									FROM people,consumes
-									WHERE race='Non-Hispanic multicultural'
+									WHERE race='Non-Hispanic multiracial'
 									AND people.id=consumes.person
 									AND consumes.drug='Alcohol'";
-									$line = 'The percentage of people who use alcohol and are Non-Hispanic multicultural: ';
+									$line = 'The percentage of people who use alcohol and are Non-Hispanic multiracial: ';
 					}
 					else if($second == 'nha')
 					{
