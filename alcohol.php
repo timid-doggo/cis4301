@@ -445,7 +445,7 @@
 					if(!empty($S2) && empty($S3)){
 						$line="{$S1} {$S2} of Alcohol users: ";
 					}
-					else{
+					else if(!empty($S2)){
 						$t="select type from Employment where JOBID={$S3}";
 
 						$statement = oci_parse($connection, $t);
