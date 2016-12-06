@@ -273,7 +273,7 @@
 									WHERE has.job!=9999
 						  		AND has.person=consumes.person
 						  		AND consumes.drug='Alcohol'";
-						$line = 'The amount of alcohol users that are unemployed: ';
+						$line = 'The amount of alcohol users that are employed: ';
 					}
 					else if($second == 'nhw')
 					{
