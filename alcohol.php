@@ -439,7 +439,7 @@
 					}
 				}
 				else{
-					if(empty($S3)){
+					if(!empty($S2) && empty($S3)){
 						$line="{$S1} {$S2} of Alcohol users: ";
 					}
 					else{
