@@ -315,10 +315,10 @@
 					{
 						$s = "SELECT COUNT(*)
 									FROM people, consumes
-									WHERE race='Non-Hispanic multicultural'
+									WHERE race='Non-Hispanic multiracial'
 						  		AND people.id=consumes.person
 						  		AND consumes.drug='Alcohol'";
-									$line = 'The amount of alcohol users that are Non-Hispanic multicultural: ';
+									$line = 'The amount of alcohol users that are Non-Hispanic multiracial: ';
 					}
 					else if($second == 'nha')
 					{
@@ -386,7 +386,7 @@
 					}
 					else if($second == 'nhw')
 					{
-						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/55270),2) AS DECIMAL(5,2))
 									FROM people,consumes
 									WHERE race='Non-Hispanic White'
 						  		AND people.id=consumes.person
@@ -395,7 +395,7 @@
 					}
 					else if($second == 'hispanic')
 					{
-						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/55270),2) AS DECIMAL(5,2))
 									FROM people,consumes
 									WHERE race='Hispanic'
 								  AND people.id=consumes.person
@@ -404,7 +404,7 @@
 					}
 					else if($second == 'nhb')
 					{
-						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/55270),2) AS DECIMAL(5,2))
 									FROM people,consumes
 									WHERE race='Non-Hispanic Black/African-American'
 								  AND people.id=consumes.person
@@ -413,7 +413,7 @@
 					}
 					else if($second == 'nhpi')
 					{
-						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/55270),2) AS DECIMAL(5,2))
 									FROM people,consumes
 									WHERE race='Non-Hispanic Pacific Islander'
 						  		AND people.id=consumes.person
@@ -422,16 +422,16 @@
 					}
 					else if($second == 'nhm')
 					{
-						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/55270),2) AS DECIMAL(5,2))
 									FROM people,consumes
-									WHERE race='Non-Hispanic multicultural'
+									WHERE race='Non-Hispanic multiracial'
 									AND people.id=consumes.person
 									AND consumes.drug='Alcohol'";
-									$line = 'The percentage of people who use alcohol and are Non-Hispanic multicultural: ';
+									$line = 'The percentage of people who use alcohol and are Non-Hispanic multiracial: ';
 					}
 					else if($second == 'nha')
 					{
-						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/55270),2) AS DECIMAL(5,2))
 									FROM people,consumes
 									WHERE race='Non-Hispanic Asian'
 									AND people.id=consumes.person
@@ -440,7 +440,7 @@
 					}
 					else if($second == 'nhna')
 					{
-						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/55270),2) AS DECIMAL(5,2))
 									FROM people,consumes
 									WHERE race='Non-Hispanic Native-American'
 								  AND people.id=consumes.person
