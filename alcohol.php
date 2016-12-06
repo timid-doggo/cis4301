@@ -184,6 +184,98 @@
 			(Median) (value) of people who use (substance)?
 			(Standard deviation) (value) of people who use (substance)?-->
 		</p>
+		<p>
+			<form method="post">
+				<select id="select" name="ONE">
+					<option value="nothing">
+						Choose...
+					</option>
+					<option value="average">
+						Average
+					</option>
+					<option value="mode">
+						Mode
+					</option>
+					<option value="median">
+						Median
+					</option>
+					<option value="stddev">
+						Standard Deviation
+					</option>
+				</select>
+				<select id="select" name="TWO">
+					<option value="nothing">
+						Choose...
+					</option>
+					<option value="age">
+						Age
+					</option>
+					<option value="income">
+						Income
+					</option>
+					<option value="firstuse">
+						Age of first use
+					</option>
+				</select>
+				of Alcohol users who work in the field of
+				<select id="select" name="THREE">
+					<option value="nothing">
+						Choose...
+					</option>
+					<option value="job1">
+						Executive/Administrative/Managerial/Financial
+					</option>
+    					<option value="job2">
+    						Professional (not Education/Entertainment/Media)
+    					</option>
+    					<option value="job3">
+    						Education and Related Occupations
+    					</option>
+    					<option value="job4">
+    						Entertainers, Sports, Media, and Communications
+    					</option>
+    					<option value="job5">
+    						Technicians and Related Support Occupations
+    					</option>
+    					<option value="job6">
+    						Sales Occupations
+    					</option>
+    					<option value="job7">
+    						Office and Administrative Support Workers
+    					</option>
+    					<option value="job8">
+    						Protective Service Occupations
+    					</option>
+    					<option value="job9">
+    						Service Occupations, Except Protective
+    					</option>
+    					<option value="job10">
+    						Farming, Fishing, and Forestry Occupations
+    					</option>
+    					<option value="job11">
+    						Installation, Maintenance and Repair Workers
+    					</option>
+    					<option value="job12">
+    						Construction Trades and Extraction Workers
+    					</option>
+    					<option value="job13">
+    						Production, Machinery Setters/Operators/Tenders
+    					</option>
+    					<option value="job14">
+    						Transportation and Material Moving Workers
+    					</option>
+    					<option value="job15">
+    						Unknown or unemployed
+    					</option>
+				</select>
+				?
+				<input type="submit" name="submit">
+			</form>
+			<!--(Average) (value) of people who use (substance)?
+			(Mode) (value) of people who use (substance)?
+			(Median) (value) of people who use (substance)?
+			(Standard deviation) (value) of people who use (substance)?-->
+		</p>
 
     	<?php
 				//$connection = oci_connect($username = 'jnovick',
