@@ -1,4 +1,3 @@
-#!/usr/local/bin/php
 <!DOCTYPE html>
 <html>
 	<head>
@@ -215,11 +214,11 @@
 		</p>
 
     	<?php
+			//error_reporting(0);
+		//	@ini_set('display_errors', 0);
 				$connection = oci_connect($username = 'jnovick',
 																	$password = 'password',
 																	$connection_string = '//oracle.cise.ufl.edu/orcl');
-
-
 				$first = $_POST['ONE'];
 				$second = $_POST['TWO'];
 
@@ -234,6 +233,7 @@
 						$s = "SELECT COUNT(*)
 									FROM consumes
 									WHERE drug = 'Alcohol'";
+						$line = 'The amount of alcohol users is: ';
 					}
 					else if($second == 'makemore')
 					{
@@ -331,6 +331,7 @@
 					if(empty($second))
 					{
 						$s = "SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2)) FROM has, consumes WHERE has.job!=9999 AND has.person=consumes.person AND consumes.drug='Alcohol'";
+						$line = 'The percentage of people who use alcohol: ';
 					}
 					else if($second == 'makemore')
 					{
@@ -455,7 +456,7 @@
 						{
 							$s = "SELECT AVG(has.income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
 						}
-						
+
 					}
 					else if($S2 == 'firstuse')
 					{
@@ -609,7 +610,7 @@
 
 			  $statement = oci_parse($connection, $s);
 			  oci_execute($statement);
-
+				echo $line;
 			  while (($row = oci_fetch_array($statement, OCI_BOTH)) != false)
 			  {
 					echo $row[0]."<br>";
