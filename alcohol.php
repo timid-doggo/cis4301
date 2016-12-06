@@ -447,11 +447,17 @@
 								$s = "SELECT ROUND(AVG(Age))
 											FROM People, consumes
 											WHERE consumes.drug = 'Alcohol'
-										AND consumes.person = People.ID";
+											AND consumes.person = People.ID";
 							}
 							else
 							{
-								$s = "SELECT AVG(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+								$s = "SELECT ROUND(AVG(age))
+											FROM PEOPLE, CONSUMES, employment, has
+											WHERE people.id=consumes.person
+											AND employment.JobID = has.job
+											AND has.person = people.id
+											AND employment.JobID = {$S3}
+											AND consumes.drug='Alcohol'";
 
 							}
 						}
@@ -467,7 +473,13 @@
 							}
 							else
 							{
-								$s = "SELECT AVG(has.income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+								$s = "SELECT ROUND(AVG(has.income),2)
+											FROM PEOPLE, CONSUMES, employment, has
+											WHERE people.id=consumes.person
+											AND employment.JobID = has.job
+											AND has.person = people.id
+											AND employment.JobID = {$S3}
+											AND consumes.drug='Alcohol'";
 							}
 
 						}
@@ -481,7 +493,13 @@
 							}
 							else
 							{
-								$s = "SELECT AVG(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+								$s = "SELECT ROUND(AVG(firstUse))
+											FROM PEOPLE, CONSUMES, employment, has
+											WHERE people.id=consumes.person
+											AND employment.JobID = has.job
+											AND has.person = people.id
+											AND employment.JobID = {$S3}
+											AND consumes.drug='Alcohol'";
 							}
 						}
 					}
@@ -498,7 +516,13 @@
 							}
 							else
 							{
-								$s = "SELECT STATS_MODE(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+								$s = "SELECT STATS_MODE(age)
+											FROM PEOPLE, CONSUMES, employment, has
+											WHERE people.id=consumes.person
+											AND employment.JobID = has.job
+											AND has.person = people.id
+											AND employment.JobID = {$S3}
+											AND consumes.drug='Alcohol'";
 							}
 						}
 						else if($S2 == 'income')
@@ -513,7 +537,13 @@
 							}
 							else
 							{
-								$s = "SELECT STATS_MODE(has.income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+								$s = "SELECT STATS_MODE(has.income)
+											FROM PEOPLE, CONSUMES, employment, has
+											WHERE people.id=consumes.person
+											AND employment.JobID = has.job
+											AND has.person = people.id
+											AND employment.JobID = {$S3}
+											AND consumes.drug='Alcohol'";
 							}
 						}
 						else if($S2 == 'firstuse')
@@ -526,7 +556,13 @@
 							}
 							else
 							{
-								$s = "SELECT STATS_MODE(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+								$s = "SELECT STATS_MODE(firstUse)
+											FROM PEOPLE, CONSUMES, employment, has
+											WHERE people.id=consumes.person
+											AND employment.JobID = has.job
+											AND has.person = people.id
+											AND employment.JobID = {$S3}
+											AND consumes.drug='Alcohol'";
 							}
 						}
 					}
@@ -543,7 +579,13 @@
 							}
 							else
 							{
-								$s = "SELECT median(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+								$s = "SELECT median(age)
+											FROM PEOPLE, CONSUMES, employment, has
+											WHERE people.id=consumes.person
+											AND employment.JobID = has.job
+											AND has.person = people.id
+											AND employment.JobID = {$S3}
+											AND consumes.drug='Alcohol'";
 							}
 						}
 						else if($S2 == 'income')
@@ -558,7 +600,13 @@
 							}
 							else
 							{
-								$s = "SELECT median(income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+								$s = "SELECT median(income)
+											FROM PEOPLE, CONSUMES, employment, has
+											WHERE people.id=consumes.person
+											AND employment.JobID = has.job
+											AND has.person = people.id
+											AND employment.JobID = {$S3}
+											AND consumes.drug='Alcohol'";
 							}
 						}
 						else if($S2 == 'firstuse')
@@ -571,7 +619,13 @@
 							}
 							else
 							{
-								$s = "SELECT median(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+								$s = "SELECT median(firstUse)
+											FROM PEOPLE, CONSUMES, employment, has
+											WHERE people.id=consumes.person
+											AND employment.JobID = has.job
+											AND has.person = people.id
+											AND employment.JobID = {$S3}
+											AND consumes.drug='Alcohol'";
 							}
 						}
 					}
@@ -588,7 +642,13 @@
 							}
 							else
 							{
-								$s = "SELECT STDDEV(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+								$s = "SELECT ROUND(STDDEV(age))
+											FROM PEOPLE, CONSUMES, employment, has
+											WHERE people.id=consumes.person
+											AND employment.JobID = has.job
+											AND has.person = people.id
+											AND employment.JobID = {$S3}
+											AND consumes.drug='Alcohol'";
 							}
 						}
 						else if($S2 == 'income')
@@ -603,7 +663,13 @@
 							}
 							else
 							{
-								$s = "SELECT STDDEV(income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+								$s = "SELECT ROUND(STDDEV(income),2)
+											FROM PEOPLE, CONSUMES, employment, has
+											WHERE people.id=consumes.person
+											AND employment.JobID = has.job
+											AND has.person = people.id
+											AND employment.JobID = {$S3}
+											AND consumes.drug='Alcohol'";
 							}
 						}
 						else if($S2 == 'firstuse')
@@ -616,7 +682,13 @@
 							}
 							else
 							{
-								$s = "SELECT STDDEV(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+								$s = "SELECT ROUND(STDDEV(firstUse))
+											FROM PEOPLE, CONSUMES, employment, has
+											WHERE people.id=consumes.person
+											AND employment.JobID = has.job
+											AND has.person = people.id
+											AND employment.JobID = {$S3}
+											AND consumes.drug='Alcohol'";
 							}
 						}
 					}
