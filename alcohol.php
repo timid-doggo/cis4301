@@ -435,64 +435,9 @@
 										WHERE consumes.drug = 'Alcohol'
 							  		AND consumes.person = People.ID";
 						}
-						else if($S3 == 'job1')
+						else
 						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
+							$s = "SELECT AVG(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
 
 						}
 					}
@@ -506,66 +451,11 @@
 										AND consumes.person = People.ID
 										AND has.person = consumes.person";
 						}
-						else if($S3 == 'job1')
+						else
 						{
-
+							$s = "SELECT AVG(has.income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$s3} AND consumes.drug='Alcohol'";
 						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
-						}
+						
 					}
 					else if($S2 == 'firstuse')
 					{
@@ -575,65 +465,9 @@
 										FROM consumes
 										WHERE drug='Alcohol'";
 						}
-						else if($S3 == 'job1')
+						else
 						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
+							$s = "SELECT AVG(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$s3} AND consumes.drug='Alcohol'";
 						}
 					}
 				}
@@ -648,65 +482,9 @@
 										WHERE consumes.drug = 'Alcohol'
 										AND consumes.person = People.ID";
 						}
-						else if($S3 == 'job1')
+						else
 						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
+							$s = "SELECT STATS_MODE(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$s3} AND consumes.drug='Alcohol'";
 						}
 					}
 					else if($S2 == 'income')
@@ -719,65 +497,9 @@
 										AND consumes.person = People.ID
 										AND has.person = People.ID";
 						}
-						else if($S3 == 'job1')
+						else
 						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
+							$s = "SELECT STATS_MODE(has.income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$s3} AND consumes.drug='Alcohol'";
 						}
 					}
 					else if($S2 == 'firstuse')
@@ -788,65 +510,9 @@
 										FROM consumes
 										WHERE drug='Alcohol'";
 						}
-						else if($S3 == 'job1')
+						else
 						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
+							$s = "SELECT STATS_MODE(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$s3} AND consumes.drug='Alcohol'";
 						}
 					}
 				}
@@ -861,65 +527,9 @@
 										WHERE consumes.drug = 'Alcohol'
 										AND consumes.person = People.ID";
 						}
-						else if($S3 == 'job1')
+						else
 						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
+							$s = "SELECT median(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$s3} AND consumes.drug='Alcohol'";
 						}
 					}
 					else if($S2 == 'income')
@@ -932,65 +542,9 @@
 										AND consumes.person = People.ID
 										AND consumes.person = has.person";
 						}
-						else if($S3 == 'job1')
+						else
 						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
+							$s = "SELECT median(income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$s3} AND consumes.drug='Alcohol'";
 						}
 					}
 					else if($S2 == 'firstuse')
@@ -1001,65 +555,9 @@
 										FROM consumes
 										WHERE drug='Alcohol'";
 						}
-						else if($S3 == 'job1')
+						else
 						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
+							$s = "SELECT median(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$s3} AND consumes.drug='Alcohol'";
 						}
 					}
 				}
@@ -1074,65 +572,9 @@
 										WHERE consumes.drug = 'Alcohol'
 										AND consumes.person = People.ID";
 						}
-						else if($S3 == 'job1')
+						else
 						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
+							$s = "SELECT STDDEV(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$s3} AND consumes.drug='Alcohol'";
 						}
 					}
 					else if($S2 == 'income')
@@ -1145,65 +587,9 @@
 										AND consumes.person = People.ID
 										AND has.person = consumes.person";
 						}
-						else if($S3 == 'job1')
+						else
 						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
+							$s = "SELECT STDDEV(income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$s3} AND consumes.drug='Alcohol'";
 						}
 					}
 					else if($S2 == 'firstuse')
@@ -1214,65 +600,9 @@
 										FROM consumes
 										WHERE drug='Alcohol'";
 						}
-						else if($S3 == 'job1')
+						else
 						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
+							$s = "SELECT STDDEV(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$s3} AND consumes.drug='Alcohol'";
 						}
 					}
 				}

@@ -1,0 +1,53 @@
+--drop table "HAS";
+--drop table "HASHAD";
+--drop table "CONSUMES";
+--drop table "DRUGS";
+--drop table "PEOPLE";
+--drop table "EDUCATION";
+--drop table "EMPLOYMENT";
+
+create table People
+(ID		int not null,
+ Race		varchar(255) not null,
+ Age		int not null,
+ Gender	varchar(10),
+ primary key (ID));
+
+create table Employment
+(JobID  int not null,
+ type		varchar(255) not null,
+ primary key(JobID));
+
+create table Education
+(EducationID int not null,
+type varchar(255) not null,
+primary key(EducationID));
+
+create table Drugs
+(type		varchar(255) not null,
+ primary key(type));
+
+create table has
+(person	int not null,
+ job		int,
+ hours		int,
+ income 	int not null,
+ primary key (person, job),
+ foreign key (person) references People(ID),
+ foreign key (job) references Employment(JOBID));
+
+create table hasHad
+(person	int not null,
+	 Education	int not null,
+	 primary key (person, Education),
+	 foreign key (person) references People(ID),
+	 foreign key (Education) references Education(EducationID));
+
+create table consumes
+	(person	int not null,
+	 drug		varchar(255) not null,
+	 firstUse	int,
+	 frequency	varchar(255),
+	 primary key (person, drug),
+	 foreign key (person) references People(ID),
+	 foreign key (drug) references Drugs(type));
