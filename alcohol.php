@@ -245,6 +245,7 @@
   								AND has.income > 21000
   								AND consumes.person = People.ID
   								AND has.person = People.ID";
+						$line = 'The amount of alcohol users that make more than REDO THIS ONE: ';
 					}
 					else if($second == 'makeless')
 					{
@@ -254,6 +255,7 @@
 						  		AND has.income < 30000
 						  		AND consumes.person = People.ID
 						  		AND has.person = People.ID";
+						$line = 'The amount of alcohol users that make less than SOMETHING PLS REDO: ';
 					}
 					else if($second == 'unemployed')
 					{
@@ -262,6 +264,7 @@
 									WHERE has.job = 9999
 						  		AND has.person = consumes.person
 									AND consumes.drug = 'Alcohol'";
+						$line = 'The amount of alcohol users that are unemployed: ';
 					}
 					else if($second == 'employed')
 					{
@@ -270,6 +273,7 @@
 									WHERE has.job!=9999
 						  		AND has.person=consumes.person
 						  		AND consumes.drug='Alcohol'";
+						$line = 'The amount of alcohol users that are unemployed: ';
 					}
 					else if($second == 'nhw')
 					{
@@ -278,6 +282,7 @@
 									WHERE race='Non-Hispanic White'
 						  		AND people.id=consumes.person
 						  		AND consumes.drug='Alcohol'";
+						$line = 'The amount of alcohol users that are Non-Hispanic White: ';
 					}
 					else if($second == 'hispanic')
 					{
@@ -286,6 +291,7 @@
 									WHERE race='Hispanic'
 						  		AND people.id=consumes.person
 						  		AND consumes.drug='Alcohol'";
+						$line = 'The amount of alcohol users that are Hispanic: ';
 					}
 					else if($second == 'nhb')
 					{
@@ -294,6 +300,7 @@
 									WHERE race='Non-Hispanic Black/African-American'
 						  		AND people.id=consumes.person
 						  		AND consumes.drug='Alcohol'";
+									$line = 'The amount of alcohol users that are Non-Hispanic Black: ';
 					}
 					else if($second == 'nhpi')
 					{
@@ -302,6 +309,7 @@
 									WHERE race='Non-Hispanic Pacific Islander'
 						  		AND people.id=consumes.person
 						  		AND consumes.drug='Alcohol'";
+									$line = 'The amount of alcohol users that are Non-Hispanic Pacific Islander: ';
 					}
 					else if($second == 'nhm')
 					{
@@ -310,6 +318,7 @@
 									WHERE race='Non-Hispanic multicultural'
 						  		AND people.id=consumes.person
 						  		AND consumes.drug='Alcohol'";
+									$line = 'The amount of alcohol users that are Non-Hispanic multicultural: ';
 					}
 					else if($second == 'nha')
 					{
@@ -318,6 +327,7 @@
 									WHERE race='Non-Hispanic Asian'
 						  		AND people.id=consumes.person
 						  		AND consumes.drug='Alcohol'";
+									$line = 'The amount of alcohol users that are Non-Hispanic Asian: ';
 					}
 					else if($second == 'nhna')
 					{
@@ -326,6 +336,7 @@
 									WHERE race='Non-Hispanic Native-American'
 						  		AND people.id=consumes.person
 						  		AND consumes.drug='Alcohol'";
+									$line = 'The amount of alcohol users that are Non-Hispanic Native-American: ';
 					}
 				}
 				else if($first == 'percentage')
@@ -343,6 +354,7 @@
 									AND consumes.person= people.id
 									AND people.id=has.person
 									AND has.income >21000";
+									$line = 'The percentage of people who use alcohol and make more than SOMETHING PLS FIX: ';
 					}
 					else if($second == 'makeless')
 					{
