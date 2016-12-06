@@ -425,17 +425,23 @@
 					}
 				}
 				else{
-					$t="select type from Employment where JOBID={$S3}";
-					
-					$statement = oci_parse($connection, $t);
-					oci_execute($statement);
-					while (($row = oci_fetch_array($statement, OCI_BOTH)) != false)
+					if(empty($S3))
 					{
-						$job = $row[0]."<br>";
-						unset($row[0]);
+						$line="The {$S1} {$S2} of Alcohol users: ";
 					}
-					
-					$line="{$S1} {$S2} of Alcohol users who work in the field of {$job}.";
+					else
+					{
+						$t="select type from Employment where JOBID={$S3}";
+						
+						$statement = oci_parse($connection, $t);
+						oci_execute($statement);
+						while (($row = oci_fetch_array($statement, OCI_BOTH)) != false)
+						{
+							$job = $row[0]."<br>";
+							unset($row[0]);
+						}
+						$line="The {$S1} {$S2} of Alcohol users who work in the field of {$job}: ";
+					}
 					if($S1 == 'average')
 					{
 						if($S2 == 'age')
