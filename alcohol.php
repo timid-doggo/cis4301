@@ -159,49 +159,49 @@
 					<option value="nothing">
 						Choose...
 					</option>
-					<option value="job1">
+					<option value="1">
 						Executive/Administrative/Managerial/Financial
 					</option>
-    			<option value="job2">
+    			<option value="2">
     				Professional (not Education/Entertainment/Media)
     			</option>
-    			<option value="job3">
+    			<option value="3">
     				Education and Related Occupations
   				</option>
-    			<option value="job4">
+    			<option value="4">
     				Entertainers, Sports, Media, and Communications
     			</option>
-    			<option value="job5">
+    			<option value="5">
     				Technicians and Related Support Occupations
     			</option>
-    			<option value="job6">
+    			<option value="6">
     				Sales Occupations
     			</option>
-    			<option value="job7">
+    			<option value="7">
     				Office and Administrative Support Workers
     			</option>
-    			<option value="job8">
+    			<option value="8">
     				Protective Service Occupations
     			</option>
-    			<option value="job9">
+    			<option value="9">
     				Service Occupations, Except Protective
     			</option>
-    			<option value="job10">
+    			<option value="10">
     				Farming, Fishing, and Forestry Occupations
     			</option>
-    			<option value="job11">
+    			<option value="11">
     				Installation, Maintenance and Repair Workers
     			</option>
-    			<option value="job12">
+    			<option value="12">
     				Construction Trades and Extraction Workers
     			</option>
-    			<option value="job13">
+    			<option value="13">
     				Production, Machinery Setters/Operators/Tenders
     			</option>
-  				<option value="job14">
+  				<option value="14">
     				Transportation and Material Moving Workers
   				</option>
-					<option value="job15">
+					<option value="9999">
     				Unknown or unemployed
     			</option>
 				</select>
