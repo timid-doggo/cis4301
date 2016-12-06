@@ -337,7 +337,7 @@
 						  		AND people.id=consumes.person
 						  		AND consumes.drug='Alcohol'";
 									$line = 'The amount of alcohol users that are Non-Hispanic Native-American: ';
-					}
+								}
 				}
 				else if($first == 'percentage')
 				{
@@ -364,6 +364,7 @@
 									AND consumes.person= people.id
 									AND people.id=has.person
 									AND has.income <21000";
+									$line = 'The percentage of people who use alcohol and make less than SOMETHING PLS FIX: ';
 					}
 					else if($second == 'unemployed')
 					{
@@ -372,6 +373,7 @@
 									WHERE has.job=9999
   								AND has.person=consumes.person
   								AND consumes.drug='Alcohol'";
+									$line = 'The percentage of people who use alcohol and are unemployed: ';
 					}
 					else if($second == 'employed')
 					{
@@ -380,6 +382,7 @@
 									WHERE has.job!=9999
   								AND has.person=consumes.person
   								AND consumes.drug='Alcohol'";
+									$line = 'The percentage of people who use alcohol and are employed: ';
 					}
 					else if($second == 'nhw')
 					{
