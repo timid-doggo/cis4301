@@ -242,20 +242,20 @@
 						$s = "SELECT COUNT(*)
 									FROM People, consumes, has
 									WHERE consumes.drug = 'Marijuana'
-  								AND has.income > 21000
+  								AND has.income > 50000
   								AND consumes.person = People.ID
   								AND has.person = People.ID";
-						$line = 'The amount of marijuana users that make more than REDO THIS ONE: ';
+						$line = 'The amount of marijuana users that make more than $50000: ';
 					}
 					else if($second == 'makeless')
 					{
 						$s = "SELECT COUNT(*)
 									FROM People, consumes, has
 									WHERE consumes.drug = 'Marijuana'
-						  		AND has.income < 30000
+						  		AND has.income < 50000
 						  		AND consumes.person = People.ID
 						  		AND has.person = People.ID";
-						$line = 'The amount of marijuana users that make less than SOMETHING PLS REDO: ';
+						$line = 'The amount of marijuana users that make less than $50000: ';
 					}
 					else if($second == 'unemployed')
 					{
