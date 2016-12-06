@@ -214,7 +214,7 @@
 			(Median) (value) of people who use (substance)?
 			(Standard deviation) (value) of people who use (substance)?-->
 		</p>
-
+		<div class="thephp">
     	<?php
 			error_reporting(0);
 			@ini_set('display_errors', 0);
@@ -734,5 +734,6 @@
 			  oci_close($connection);
     	?>
 		</div>
+	</div>
 	</body>
 </html>
