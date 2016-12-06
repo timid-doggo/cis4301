@@ -207,6 +207,7 @@
 	    			</option>
 					</select>
 					?
+<<<<<<< HEAD
 					<input type="submit" name="submit">
 				</form>
 				<!--(Average) (value) of people who use (substance)?
@@ -216,10 +217,153 @@
 			</p>
     	<?php
 			/*	$connection = oci_connect($username = 'jnovick',
+=======
+    			<input type="submit" name="submit">
+    		</form>
+    		<!--(Amount) of people who (condition)?
+    		(Percentage) of people who (condition)?-->
+    	</p>
+		<p>
+			<form method="post">
+				<select id="select" name="STATS1">
+					<option value="nothing">
+						Choose...
+					</option>
+					<option value="average">
+						Average
+					</option>
+					<option value="mode">
+						Mode
+					</option>
+					<option value="median">
+						Median
+					</option>
+					<option value="stddev">
+						Standard Deviation
+					</option>
+				</select>
+				<select id="select" name="STATS2">
+					<option value="nothing">
+						Choose...
+					</option>
+					<option value="age">
+						Age
+					</option>
+					<option value="income">
+						Income
+					</option>
+					<option value="firstuse">
+						Age of first use
+					</option>
+				</select>
+				of Alcohol users?
+				<input type="submit" name="submit">
+			</form>
+			<!--(Average) (value) of people who use (substance)?
+			(Mode) (value) of people who use (substance)?
+			(Median) (value) of people who use (substance)?
+			(Standard deviation) (value) of people who use (substance)?-->
+		</p>
+		<p>
+			<form method="post">
+				<select id="select" name="STATS1">
+					<option value="nothing">
+						Choose...
+					</option>
+					<option value="average">
+						Average
+					</option>
+					<option value="mode">
+						Mode
+					</option>
+					<option value="median">
+						Median
+					</option>
+					<option value="stddev">
+						Standard Deviation
+					</option>
+				</select>
+				<select id="select" name="STATS2">
+					<option value="nothing">
+						Choose...
+					</option>
+					<option value="age">
+						Age
+					</option>
+					<option value="income">
+						Income
+					</option>
+					<option value="firstuse">
+						Age of first use
+					</option>
+				</select>
+				of Alcohol users who work in the field of
+				<select id="select" name="STATS3">
+					<option value="nothing">
+						Choose...
+					</option>
+					<option value="1">
+						Executive/Administrative/Managerial/Financial
+					</option>
+    			<option value="2">
+    				Professional (not Education/Entertainment/Media)
+    			</option>
+    			<option value="3">
+    				Education and Related Occupations
+  				</option>
+    			<option value="4">
+    				Entertainers, Sports, Media, and Communications
+    			</option>
+    			<option value="5">
+    				Technicians and Related Support Occupations
+    			</option>
+    			<option value="6">
+    				Sales Occupations
+    			</option>
+    			<option value="7">
+    				Office and Administrative Support Workers
+    			</option>
+    			<option value="8">
+    				Protective Service Occupations
+    			</option>
+    			<option value="9">
+    				Service Occupations, Except Protective
+    			</option>
+    			<option value="10">
+    				Farming, Fishing, and Forestry Occupations
+    			</option>
+    			<option value="11">
+    				Installation, Maintenance and Repair Workers
+    			</option>
+    			<option value="12">
+    				Construction Trades and Extraction Workers
+    			</option>
+    			<option value="13">
+    				Production, Machinery Setters/Operators/Tenders
+    			</option>
+  				<option value="14">
+    				Transportation and Material Moving Workers
+  				</option>
+					<option value="9999">
+    				Unknown or unemployed
+    			</option>
+				</select>
+				?
+				<input type="submit" name="submit">
+			</form>
+			<!--(Average) (value) of people who use (substance)?
+			(Mode) (value) of people who use (substance)?
+			(Median) (value) of people who use (substance)?
+			(Standard deviation) (value) of people who use (substance)?-->
+		</p>
+
+    	<?php
+			//error_reporting(0);
+		//	@ini_set('display_errors', 0);
+				$connection = oci_connect($username = 'jnovick',
+>>>>>>> origin/master
 																	$password = 'password',
 																	$connection_string = '//oracle.cise.ufl.edu/orcl');
-
-
 				$first = $_POST['ONE'];
 				$second = $_POST['TWO'];
 
@@ -234,7 +378,11 @@
 						$s = "SELECT COUNT(*)
 									FROM consumes
 									WHERE drug = 'Alcohol'";
+<<<<<<< HEAD
 						$line = 'The amount of Alcohol users is ';
+=======
+						$line = 'The amount of alcohol users is: ';
+>>>>>>> origin/master
 					}
 					else if($second == 'makemore')
 					{
@@ -332,6 +480,7 @@
 					if(empty($second))
 					{
 						$s = "SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2)) FROM has, consumes WHERE has.job!=9999 AND has.person=consumes.person AND consumes.drug='Alcohol'";
+						$line = 'The percentage of people who use alcohol: ';
 					}
 					else if($second == 'makemore')
 					{
@@ -424,865 +573,210 @@
 								  AND consumes.drug='Alcohol'";
 					}
 				}
+				else{
+					$t="select type from Employment where JOBID={$S3}";
 
-				if($S1 == 'average')
-				{
-					if($S2 == 'age')
+					$statement = oci_parse($connection, $t);
+					oci_execute($statement);
+					while (($row = oci_fetch_array($statement, OCI_BOTH)) != false)
 					{
-						if(empty($S3))
-						{
-							$s = "SELECT ROUND(AVG(Age))
-										FROM People, consumes
-										WHERE consumes.drug = 'Alcohol'
-							  		AND consumes.person = People.ID";
-						}
-						else if($S3 == 'job1')
-						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
-						}
+						$job = $row[0]."<br>";
+						unset($row[0]);
 					}
-					else if($S2 == 'income')
+
+					$line="{$S1} {$S2} of Alcohol users who work in the field of {$job}.";
+					if($S1 == 'average')
 					{
-						if(empty($S3))
+						if($S2 == 'age')
 						{
-							$s = "SELECT ROUND(AVG(Income),2)
-										FROM People, consumes, has
-										WHERE consumes.drug = 'Alcohol'
-										AND consumes.person = People.ID
-										AND has.person = consumes.person";
-						}
-						else if($S3 == 'job1')
-						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
-						}
-					}
-					else if($S2 == 'firstuse')
-					{
-						if(empty($S3))
-						{
-							$s = "SELECT ROUND(AVG(firstUse))
-										FROM consumes
-										WHERE drug='Alcohol'";
-						}
-						else if($S3 == 'job1')
-						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
-						}
-					}
-				}
-				else if($S1 == 'mode')
-				{
-					if($S2 == 'age')
-					{
-						if(empty($S3))
-						{
-							$s = "SELECT STATS_MODE(Age)
-										FROM People, consumes
-										WHERE consumes.drug = 'Alcohol'
+							if(empty($S3))
+							{
+								$s = "SELECT ROUND(AVG(Age))
+											FROM People, consumes
+											WHERE consumes.drug = 'Alcohol'
 										AND consumes.person = People.ID";
+							}
+							else
+							{
+								$s = "SELECT AVG(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+
+							}
 						}
-						else if($S3 == 'job1')
+						else if($S2 == 'income')
 						{
+							if(empty($S3))
+							{
+								$s = "SELECT ROUND(AVG(Income),2)
+											FROM People, consumes, has
+											WHERE consumes.drug = 'Alcohol'
+											AND consumes.person = People.ID
+											AND has.person = consumes.person";
+							}
+							else
+							{
+								$s = "SELECT AVG(has.income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+							}
 
 						}
-						else if($S3 == 'job2')
+						else if($S2 == 'firstuse')
 						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
+							if(empty($S3))
+							{
+								$s = "SELECT ROUND(AVG(firstUse))
+											FROM consumes
+											WHERE drug='Alcohol'";
+							}
+							else
+							{
+								$s = "SELECT AVG(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+							}
 						}
 					}
-					else if($S2 == 'income')
+					else if($S1 == 'mode')
 					{
-						if(empty($S3))
+						if($S2 == 'age')
 						{
-							$s = "SELECT STATS_MODE(Income)
-										FROM People, consumes, has
-										WHERE consumes.drug = 'Alcohol'
-										AND consumes.person = People.ID
-										AND has.person = People.ID";
+							if(empty($S3))
+							{
+								$s = "SELECT STATS_MODE(Age)
+											FROM People, consumes
+											WHERE consumes.drug = 'Alcohol'
+											AND consumes.person = People.ID";
+							}
+							else
+							{
+								$s = "SELECT STATS_MODE(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+							}
 						}
-						else if($S3 == 'job1')
+						else if($S2 == 'income')
 						{
-
+							if(empty($S3))
+							{
+								$s = "SELECT STATS_MODE(Income)
+											FROM People, consumes, has
+											WHERE consumes.drug = 'Alcohol'
+											AND consumes.person = People.ID
+											AND has.person = People.ID";
+							}
+							else
+							{
+								$s = "SELECT STATS_MODE(has.income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+							}
 						}
-						else if($S3 == 'job2')
+						else if($S2 == 'firstuse')
 						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
+							if(empty($S3))
+							{
+								$s = "SELECT STATS_MODE(firstuse)
+											FROM consumes
+											WHERE drug='Alcohol'";
+							}
+							else
+							{
+								$s = "SELECT STATS_MODE(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+							}
 						}
 					}
-					else if($S2 == 'firstuse')
+					else if($S1 == 'median')
 					{
-						if(empty($S3))
+						if($S2 == 'age')
 						{
-							$s = "SELECT STATS_MODE(firstuse)
-										FROM consumes
-										WHERE drug='Alcohol'";
+							if(empty($S3))
+							{
+								$s = "SELECT MEDIAN(Age)
+											FROM People, consumes
+											WHERE consumes.drug = 'Alcohol'
+											AND consumes.person = People.ID";
+							}
+							else
+							{
+								$s = "SELECT median(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+							}
 						}
-						else if($S3 == 'job1')
+						else if($S2 == 'income')
 						{
-
+							if(empty($S3))
+							{
+								$s = "SELECT MEDIAN(Income)
+											FROM People, consumes, has
+											WHERE consumes.drug = 'Alcohol'
+											AND consumes.person = People.ID
+											AND consumes.person = has.person";
+							}
+							else
+							{
+								$s = "SELECT median(income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+							}
 						}
-						else if($S3 == 'job2')
+						else if($S2 == 'firstuse')
 						{
-
+							if(empty($S3))
+							{
+								$s = "SELECT MEDIAN(firstuse)
+											FROM consumes
+											WHERE drug='Alcohol'";
+							}
+							else
+							{
+								$s = "SELECT median(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+							}
 						}
-						else if($S3 == 'job3')
+					}
+					else if($S1 == 'stddev')
+					{
+						if($S2 == 'age')
 						{
-
+							if(empty($S3))
+							{
+								$s = "SELECT ROUND(STDDEV(Age))
+											FROM People, consumes
+											WHERE consumes.drug = 'Alcohol'
+											AND consumes.person = People.ID";
+							}
+							else
+							{
+								$s = "SELECT STDDEV(age) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+							}
 						}
-						else if($S3 == 'job4')
+						else if($S2 == 'income')
 						{
-
+							if(empty($S3))
+							{
+								$s = "SELECT ROUND(STDDEV(Income),2)
+											FROM People, consumes, has
+											WHERE consumes.drug = 'Alcohol'
+											AND consumes.person = People.ID
+											AND has.person = consumes.person";
+							}
+							else
+							{
+								$s = "SELECT STDDEV(income) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+							}
 						}
-						else if($S3 == 'job5')
+						else if($S2 == 'firstuse')
 						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
+							if(empty($S3))
+							{
+								$s = "SELECT ROUND(STDDEV(firstuse))
+											FROM consumes
+											WHERE drug='Alcohol'";
+							}
+							else
+							{
+								$s = "SELECT STDDEV(firstUse) FROM PEOPLE, CONSUMES, employment, has WHERE people.id=consumes.person AND employment.JobID = has.job AND has.person = people.id AND employment.JobID = {$S3} AND consumes.drug='Alcohol'";
+							}
 						}
 					}
 				}
-				else if($S1 == 'median')
-				{
-					if($S2 == 'age')
-					{
-						if(empty($S3))
-						{
-							$s = "SELECT MEDIAN(Age)
-										FROM People, consumes
-										WHERE consumes.drug = 'Alcohol'
-										AND consumes.person = People.ID";
-						}
-						else if($S3 == 'job1')
-						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
-						}
-					}
-					else if($S2 == 'income')
-					{
-						if(empty($S3))
-						{
-							$s = "SELECT MEDIAN(Income)
-										FROM People, consumes, has
-										WHERE consumes.drug = 'Alcohol'
-										AND consumes.person = People.ID
-										AND consumes.person = has.person";
-						}
-						else if($S3 == 'job1')
-						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
-						}
-					}
-					else if($S2 == 'firstuse')
-					{
-						if(empty($S3))
-						{
-							$s = "SELECT MEDIAN(firstuse)
-										FROM consumes
-										WHERE drug='Alcohol'";
-						}
-						else if($S3 == 'job1')
-						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
-						}
-					}
-				}
-				else if($S1 == 'stddev')
-				{
-					if($S2 == 'age')
-					{
-						if(empty($S3))
-						{
-							$s = "SELECT ROUND(STDDEV(Age))
-										FROM People, consumes
-										WHERE consumes.drug = 'Alcohol'
-										AND consumes.person = People.ID";
-						}
-						else if($S3 == 'job1')
-						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
-						}
-					}
-					else if($S2 == 'income')
-					{
-						if(empty($S3))
-						{
-							$s = "SELECT ROUND(STDDEV(Income),2)
-										FROM People, consumes, has
-										WHERE consumes.drug = 'Alcohol'
-										AND consumes.person = People.ID
-										AND has.person = consumes.person";
-						}
-						else if($S3 == 'job1')
-						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
-						}
-					}
-					else if($S2 == 'firstuse')
-					{
-						if(empty($S3))
-						{
-							$s = "SELECT ROUND(STDDEV(firstuse))
-										FROM consumes
-										WHERE drug='Alcohol'";
-						}
-						else if($S3 == 'job1')
-						{
-
-						}
-						else if($S3 == 'job2')
-						{
-
-						}
-						else if($S3 == 'job3')
-						{
-
-						}
-						else if($S3 == 'job4')
-						{
-
-						}
-						else if($S3 == 'job5')
-						{
-
-						}
-						else if($S3 == 'job6')
-						{
-
-						}
-						else if($S3 == 'job7')
-						{
-
-						}
-						else if($S3 == 'job8')
-						{
-
-						}
-						else if($S3 == 'job9')
-						{
-
-						}
-						else if($S3 == 'job10')
-						{
-
-						}
-						else if($S3 == 'job11')
-						{
-
-						}
-						else if($S3 == 'job12')
-						{
-
-						}
-						else if($S3 == 'job13')
-						{
-
-						}
-						else if($S3 == 'job14')
-						{
-
-						}
-						else if($S3 == 'job15')
-						{
-
-						}
-					}
-				}
-
 			  $statement = oci_parse($connection, $s);
 			  oci_execute($statement);
+<<<<<<< HEAD
 
 				echo $line;
 
+=======
+				echo $line;
+>>>>>>> origin/master
 			  while (($row = oci_fetch_array($statement, OCI_BOTH)) != false)
 			  {
 					echo $row[0]."<br>";
