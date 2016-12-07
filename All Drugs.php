@@ -37,7 +37,7 @@
 				<br>
 				This page searches all survey participants who have used at least one drug or alcohol.
 				<br>
-				Note: If a survey participant used multiple drugs, they will be counted multiple times for average, mode, median, and standard deviation of first use or frequency of use.
+				Note: If a survey participant used multiple drugs, they will be counted multiple times for average, mode, median, or standard deviation of age at first use.
 				<br>
 				All sections left completely blank will not be used in the search.
 				<br>
@@ -76,9 +76,6 @@
 					</option>
 					<option value="consumes.firstuse">
 						Age of first use
-					</option>
-					<option value="consumes.frequency">
-						Number of days used per year
 					</option>
 				</select>
     			<br>
@@ -229,7 +226,7 @@
 						$query = "{$query} ROUND(STDDEV({$stats2}),2)";
 					}
 					
-					if($stats2 == 'consumes.firstuse' || $stats2 == 'consumes.frequency')
+					if($stats2 == 'consumes.firstuse')
 					{
 						$query = "{$query} FROM People, Consumes, Education, Employment, Has, HasHad
 											WHERE People.ID = Consumes.person
