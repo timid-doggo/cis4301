@@ -343,12 +343,17 @@
 				{
 					if(empty($second))
 					{
-						$s = "SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2)) FROM has, consumes WHERE has.job!=9999 AND has.person=consumes.person AND consumes.drug='Marijuana'";
+						$s = "SELECT cast(round(((count(*)*100)/55270),2)
+									as decimal(5,2))
+									FROM has, consumes
+									WHERE has.job!=9999
+									AND has.person=consumes.person
+									AND consumes.drug='Marijuana'";
 						$line = 'The percentage of people who use marijuana: ';
 					}
 					else if($second == 'makemore')
 					{
-						$s = "SELECT cast(round(((count(*)*100)/55270),2) AS DECIMAL(5,2))
+						$s = "SELECT cast(round(((count(*)*100)/23461),2) AS DECIMAL(5,2))
 									FROM people, consumes, has
 									WHERE consumes.drug = 'Marijuana'
 									AND consumes.person= people.id
@@ -358,7 +363,7 @@
 					}
 					else if($second == 'makeless')
 					{
-						$s = "SELECT cast(round(((count(*)*100)/55270),2) AS DECIMAL(5,2))
+						$s = "SELECT cast(round(((count(*)*100)/23461),2) AS DECIMAL(5,2))
 									FROM people, consumes, has
 									WHERE consumes.drug = 'Marijuana'
 									AND consumes.person= people.id
@@ -368,7 +373,7 @@
 					}
 					else if($second == 'unemployed')
 					{
-						$s = "SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2))
+						$s = "SELECT cast(round(((count(*)*100)/23461),2) as decimal(5,2))
 									FROM has, consumes
 									WHERE has.job=9999
   								AND has.person=consumes.person
@@ -377,7 +382,7 @@
 					}
 					else if($second == 'employed')
 					{
-						$s = "SELECT cast(round(((count(*)*100)/55270),2) as decimal(5,2))
+						$s = "SELECT cast(round(((count(*)*100)/23461),2) as decimal(5,2))
 									FROM has, consumes
 									WHERE has.job!=9999
   								AND has.person=consumes.person
@@ -386,7 +391,7 @@
 					}
 					else if($second == 'nhw')
 					{
-						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/23461),2) AS DECIMAL(5,2))
 									FROM people,consumes
 									WHERE race='Non-Hispanic White'
 						  		AND people.id=consumes.person
@@ -395,7 +400,7 @@
 					}
 					else if($second == 'hispanic')
 					{
-						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/23461),2) AS DECIMAL(5,2))
 									FROM people,consumes
 									WHERE race='Hispanic'
 								  AND people.id=consumes.person
@@ -404,7 +409,7 @@
 					}
 					else if($second == 'nhb')
 					{
-						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/23461),2) AS DECIMAL(5,2))
 									FROM people,consumes
 									WHERE race='Non-Hispanic Black/African-American'
 								  AND people.id=consumes.person
@@ -413,7 +418,7 @@
 					}
 					else if($second == 'nhpi')
 					{
-						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/23461),2) AS DECIMAL(5,2))
 									FROM people,consumes
 									WHERE race='Non-Hispanic Pacific Islander'
 						  		AND people.id=consumes.person
@@ -422,7 +427,7 @@
 					}
 					else if($second == 'nhm')
 					{
-						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/23461),2) AS DECIMAL(5,2))
 									FROM people,consumes
 									WHERE race='Non-Hispanic multiracial'
 									AND people.id=consumes.person
@@ -431,7 +436,7 @@
 					}
 					else if($second == 'nha')
 					{
-						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/23461),2) AS DECIMAL(5,2))
 									FROM people,consumes
 									WHERE race='Non-Hispanic Asian'
 									AND people.id=consumes.person
@@ -440,7 +445,7 @@
 					}
 					else if($second == 'nhna')
 					{
-						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/9524),2) AS DECIMAL(5,2))
+						$s = "SELECT CAST(ROUND(((COUNT(*)*100)/23461),2) AS DECIMAL(5,2))
 									FROM people,consumes
 									WHERE race='Non-Hispanic Native-American'
 								  AND people.id=consumes.person
