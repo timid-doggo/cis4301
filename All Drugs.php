@@ -37,7 +37,7 @@
 				<br>
 				This page searches all survey participants who have used at least one drug or alcohol.
 				<br>
-				Note: If a survey participant used multiple drugs, they will be counted multiple times for average, mode, median, and standard deviation.
+				Note: If a survey participant used multiple drugs, they will be counted multiple times for average, mode, median, and standard deviation of first use or frequency of use.
 				<br>
 				All sections left completely blank will not be used in the search.
 				<br>
@@ -89,6 +89,9 @@
 				<select id="select" name="drugCondition">
 				    <option value="O">
     					At least one of the following
+    				</option>
+					<option value="A">
+    					All of the following
     				</option>
 					<option value="N">
     					None of the following
@@ -226,28 +229,54 @@
 						$query = "{$query} ROUND(STDDEV({$stats2}),2)";
 					}
 					
-					$query = "{$query} FROM People, Consumes, Drugs, Education, Employment, Has, HasHad
-										WHERE People.ID = Consumes.person
-										AND People.ID = HasHad.person
-										AND People.ID = Has.person
-										AND Consumes.drug = Drugs.type
-										AND HasHad.education = Education.educationID
-										AND Has.job = Employment.jobID";
+					if($stats2 == 'consumes.firstuse' || $stats2 == 'consumes.frequency')
+					{
+						$query = "{$query} FROM People, Consumes, Education, Employment, Has, HasHad
+											WHERE People.ID = Consumes.person
+											AND People.ID = HasHad.person
+											AND People.ID = Has.person
+											AND HasHad.education = Education.educationID
+											AND Has.job = Employment.jobID";
+					}
+					else
+					{
+						$query = "{$query} FROM People, Education, Employment, Has, HasHad
+											WHERE People.ID = HasHad.person
+											AND People.ID = Has.person
+											AND HasHad.education = Education.educationID
+											AND Has.job = Employment.jobID";
+					}
 					
 					if(count($drug) != 0){
+						
 						if($drugCondition == 'N'){
-							$query = "{$query} AND Drugs.type NOT IN (";
+							foreach ($drug as &$value) {
+								$query = "{$query} AND People.ID NOT IN (SELECT person FROM Consumes WHERE drug='{$value}')";
+							}
+							unset($value);
+						}
+
+						else if($drugCondition=='A'){
+							foreach ($drug as &$value) {
+								$query = "{$query} AND People.ID IN (SELECT person FROM Consumes WHERE drug='{$value}')";
+							}
+							unset($value);
 						}
 						else{
-							$query = "{$query} AND Drugs.type IN (";
+							$c=0;
+							$query="{$query} AND (";
+							
+							foreach ($drug as &$value) {
+								$c=$c+1;
+								$query = "{$query}People.ID IN (SELECT person FROM Consumes WHERE drug='{$value}')";
+								
+								if($c<count($drug)){
+									$query="{$query} OR ";
+								}
+							}
+							unset($value);
+							$query="{$query})";
 						}
-						
-						foreach ($drug as &$value) {
-							$query = "{$query}'{$value}', ";
-						}
-						unset($value);
-						
-						$query = "{$query}'Ignore')"; //The extra 'Ignore' will have no effect
 					}
 					
 					if(count($race) != 0){
@@ -302,7 +331,8 @@
 			$line="The result of your search is: ";
 			$statement = oci_parse($connection, $query);
 			oci_execute($statement);
-			echo $query;
+			echo $line;
+//			echo $query;
 			while (($row = oci_fetch_array($statement, OCI_BOTH)) != false)
 			{
 				echo $row[0]."<br>";
