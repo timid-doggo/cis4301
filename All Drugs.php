@@ -299,10 +299,10 @@
 						$query = "{$query} AND People.age > {$age2}";
 					}
 				}
-			$line="The answer to your search is: "
+			$line="The result of your search is: ";
 			$statement = oci_parse($connection, $query);
 			oci_execute($statement);
-			echo $line;
+			echo $query;
 			while (($row = oci_fetch_array($statement, OCI_BOTH)) != false)
 			{
 				echo $row[0]."<br>";
