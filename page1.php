@@ -24,6 +24,9 @@
 			<li>
 				<a href="http://localhost/cis4301/tobacco.php" target="_blank">Tobacco</a>
 			</li>
+			<li>
+				<a href="http://localhost/cis4301/All%20Drugs.php" target="_blank">All Drugs Advanced Search</a>
+			</li>
 		</ul>
 	</div>
 	</body>
