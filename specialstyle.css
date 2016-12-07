@@ -1,0 +1,32 @@
+body {
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: darkgray;
+}
+
+#content {
+	border-radius: 50px;
+    padding-top: 25px;
+	height: 100%;
+    background-color: lightblue;
+	padding-bottom: 100%
+}
+
+h1 {
+    text-align: center;
+    align-content: right;
+    color: black;
+	padding-bottom: 50px;
+}
+
+.thephp {
+  margin-left: 100px;
+}
+
+p {
+  font-size: 250%;
+}
+
+h3, form {
+    margin-left: 50px;
+}
